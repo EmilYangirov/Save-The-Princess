@@ -11,14 +11,14 @@ public class Player : Character
     public override void Update()
     {
         base.Update();
-        Attack();
-    }
-    public override void Attack()
-    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            base.Attack();
+            Attack();
         }
+    }
+    public override void Attack()
+    {       
+        base.Attack();        
     }
     public override void Walk()
     {
