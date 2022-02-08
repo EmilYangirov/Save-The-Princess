@@ -9,6 +9,6 @@ public class Food : Treasure
     public override void GiveStats()
     {
         caharcterLevel = player.GetComponent<CharacterLvl>();
-        caharcterLevel.changeValue(giveme);
+        caharcterLevel.ChangeValue(giveme);
     }
 }

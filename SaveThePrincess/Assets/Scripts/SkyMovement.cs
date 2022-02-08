@@ -20,7 +20,7 @@ public class SkyMovement : MonoBehaviour
     {
         for (int i = 0; i < sky.Length; i++)
         {
-            if (sky[i].transform.localPosition.x > xPosition)
+            if (sky[i].transform.localPosition.x >= xPosition)
             {
                 sky[i].transform.position = Vector3.MoveTowards(sky[i].transform.position, new Vector3(xPosition, sky[i].transform.position.y, sky[i].transform.position.z), speed);
             }

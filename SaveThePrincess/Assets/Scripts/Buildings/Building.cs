@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Building : LevelSystem
 {
-    protected int level, cost;
+    protected int cost;
     private PlayerMoneys pMoney;
 
     protected string name;
@@ -24,15 +24,15 @@ public class Building : LevelSystem
         if (check)
         {                       
             pMoney.Buy(cost);
-            cost *= 3;
-            SetStats();
             level++;
+            SetStats();
         }
     }
 
 
     public override void SetStats()
-    {
+    {                
+        cost = level * cost * 2 + cost;
         nameText.text = name + ", level: " + level;
         costText.text = "New level: " + cost;
     }

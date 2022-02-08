@@ -7,9 +7,9 @@ public class ChickenAgressive : Neutral
     public float runSpeed;
     public float walkSpeed;
     
-    public new void Update()
+    public new void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
         Attack();
     }
     public override void Hit(float getDamage, int dirKoeff, float enemyPower)

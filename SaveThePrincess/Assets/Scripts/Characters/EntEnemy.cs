@@ -8,9 +8,9 @@ public class EntEnemy : Enemy
     public Transform rangeAttackPosition;
     public AppleSpawner spawner;
 
-    public new void Update()
+    public new void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
         Attack();
     }
     public new void Attack()

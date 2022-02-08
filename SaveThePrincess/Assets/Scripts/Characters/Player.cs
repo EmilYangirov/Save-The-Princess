@@ -8,9 +8,9 @@ public class Player : Character
     public FloatingJoystick fJoystick;
     [HideInInspector] public float foods;     
 
-    public override void Update()
+    public override void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Attack();

@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Character : HitableObject
 {
     public float health, damage, speed, power, attackRadius, attackDelay;
+    public float damageModifier, baseHealth, baseDamage;
     public float maxHealth;
     public Transform attackCenter;
     public LayerMask enemyLayers;
@@ -21,10 +22,12 @@ public abstract class Character : HitableObject
     {
         anim = gameObject.GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody2D>();
+        ModifyCharacterStats();
     }
+
     public abstract void Walk();
 
-    public virtual void Update()
+    public virtual void FixedUpdate()
     {
         Walk();
     }
@@ -76,7 +79,7 @@ public abstract class Character : HitableObject
         
     }
 
-    public void Death()
+    public virtual void Death()
     {
         if (drops.Length != 0)
         {
@@ -111,7 +114,8 @@ public abstract class Character : HitableObject
         transform.localScale *= scaleVector;
         flip = !flip;
     }
-    void OnDrawGizmosSelected()
+
+    private void OnDrawGizmosSelected()
     {
         if(attackCenter == null)
            return;
@@ -120,11 +124,18 @@ public abstract class Character : HitableObject
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(attackCenter.position, attackRadius);
     }
+
     public void CheckBars()
     {
         for (int i = 0; i < chBars.Count; i++)
         {
             chBars[i].CheckBar();
         }
+    }
+
+    public void ModifyCharacterStats()
+    {
+        health = baseHealth;
+        damage = baseDamage + damageModifier;
     }
 }

@@ -15,14 +15,17 @@ public abstract class Neutral : Enemy
         CreateTarget();
         ChooseTarget();
     }
-    protected new void Update()
+    protected new void FixedUpdate()
     {
-        base.Update();
-        if(!agression && dist < attackDist && !onPoint)
+        base.FixedUpdate();
+        if(!agression && dist <= attackDist && !onPoint)
         {
             onPoint = true;
             StartCoroutine(WaitToChangeTarget());            
         }
+        if (dist > walkDist)
+            ChooseTarget();
+        
         Attack();
     }
     //choose target in agressive mode or neutral
@@ -58,5 +61,15 @@ public abstract class Neutral : Enemy
         {
             base.Attack();
         }
+    }
+
+    public override void Death()
+    {
+        if (!agression)
+        {
+            Destroy(target.gameObject);
+        }
+          
+        base.Death();        
     }
 }

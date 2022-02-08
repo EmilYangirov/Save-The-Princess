@@ -12,9 +12,9 @@ public abstract class Enemy : Character
         base.Start();        
         ChooseTarget();
     }
-    public new void Update()
+    public new void FixedUpdate()
     {
-        base.Update();
+        base.FixedUpdate();
         dist = Vector2.Distance(transform.position, target.position);
     }
     public override void Walk()
