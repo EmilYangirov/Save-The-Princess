@@ -14,7 +14,7 @@ public class ChickenFarm : Building
 
     private bool ok = false;
 
-    private void Start()
+    public override void Start()
     {
         name = "Chicken farm";
         base.Start();

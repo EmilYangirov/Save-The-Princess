@@ -22,11 +22,14 @@ public class SkyMovement : MonoBehaviour
         {
             if (sky[i].transform.localPosition.x >= xPosition)
             {
-                sky[i].transform.position = Vector3.MoveTowards(sky[i].transform.position, new Vector3(xPosition, sky[i].transform.position.y, sky[i].transform.position.z), speed);
+                float y = sky[i].transform.localPosition.y;
+                float z = sky[i].transform.localPosition.z;
+
+                sky[i].transform.localPosition = Vector3.MoveTowards(sky[i].transform.localPosition, new Vector3(xPosition,y,z), speed);
             }
             else
             {
-                sky[i].transform.localPosition = new Vector3(0, sky[i].transform.position.y, sky[i].transform.position.z);
+                sky[i].transform.localPosition = new Vector3(0, sky[i].transform.localPosition.y, sky[i].transform.localPosition.z);
             }
         }
     }

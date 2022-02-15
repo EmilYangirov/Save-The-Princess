@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Character : HitableObject
+public abstract class Character : MonoBehaviour, IHitableObject
 {
     public float health, damage, speed, power, attackRadius, attackDelay;
     public float damageModifier, baseHealth, baseDamage;
@@ -51,14 +51,14 @@ public abstract class Character : HitableObject
                     enemyDirKoeff = -1;
                 }
                 //hit enemy
-                enemy.transform.GetComponent<HitableObject>().Hit(damage, enemyDirKoeff, power);                
+                enemy.transform.GetComponent<IHitableObject>().Hit(damage, enemyDirKoeff, power);                
             }
             //attack wait
             StartCoroutine(ReloadCoroutine());
         }
     }
 
-    public override void Hit(float getDamage, int dirKoeff, float enemyPower)
+    public virtual void Hit(float getDamage, int dirKoeff, float enemyPower)
     {
         //hit animation
         anim.SetTrigger("hit");
@@ -76,7 +76,7 @@ public abstract class Character : HitableObject
         {
             Death();
         }
-        
+        Debug.Log(getDamage);
     }
 
     public virtual void Death()

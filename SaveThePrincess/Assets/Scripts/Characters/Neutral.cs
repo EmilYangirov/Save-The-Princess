@@ -15,7 +15,7 @@ public abstract class Neutral : Enemy
         CreateTarget();
         ChooseTarget();
     }
-    protected new void FixedUpdate()
+    public override void FixedUpdate()
     {
         base.FixedUpdate();
         if(!agression && dist <= attackDist && !onPoint)
@@ -29,7 +29,7 @@ public abstract class Neutral : Enemy
         Attack();
     }
     //choose target in agressive mode or neutral
-    public new void ChooseTarget()
+    public override void ChooseTarget()
     {
         if (!agression)
         {
@@ -55,7 +55,7 @@ public abstract class Neutral : Enemy
         onPoint = false;
     }
     
-    public new void Attack()
+    public override void Attack()
     {
         if (agression)
         {

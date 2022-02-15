@@ -12,7 +12,7 @@ public abstract class Enemy : Character
         base.Start();        
         ChooseTarget();
     }
-    public new void FixedUpdate()
+    public override void FixedUpdate()
     {
         base.FixedUpdate();
         dist = Vector2.Distance(transform.position, target.position);

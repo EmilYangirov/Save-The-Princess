@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AppleSpawner : HitableObject
+public class AppleSpawner : MonoBehaviour, IHitableObject
 {
     public List<Transform> apples;
     public GameObject spawnGO;
@@ -21,7 +21,7 @@ public class AppleSpawner : HitableObject
         );
     }
 
-    void Update()
+    private void Update()
     {
         SpawnApples();
     }
@@ -39,7 +39,7 @@ public class AppleSpawner : HitableObject
         }
     }
 
-    public override void Hit(float getDamage=0, int dirKoeff=0, float enemyPower=0)
+    public void Hit(float getDamage=0, int dirKoeff=0, float enemyPower=0)
     {
         for (int i = 0; i < apples.Count; i++)
         {

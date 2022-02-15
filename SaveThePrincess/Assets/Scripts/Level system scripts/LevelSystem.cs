@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class LevelSystem : MonoBehaviour
 {
     public int level;
-
+    public int id;
     public abstract void IncreaseLvl();
     public abstract void SetStats();
 }

@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : HitableObject
+public class Tower : Building, IHitableObject
 {
     protected Animator anim;
     public float health, maxHealth;
     public CharacterBar healthBar;
     public GameObject[] treasures;
 
-    void Start()
+    public override void Start()
     {
         anim = gameObject.GetComponent<Animator>();
     }
-    public override void Hit(float getDamage, int dirKoeff = 0, float enemyPower = 0)
+    public void Hit(float getDamage, int dirKoeff = 0, float enemyPower = 0)
     {
         health -= getDamage;
         healthBar.CheckBar();

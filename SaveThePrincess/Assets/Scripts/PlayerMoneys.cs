@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerMoneys : MonoBehaviour
 {
-    private int moneys;
+    public int moneys { get; private set; }
     public Text moneyText;
     public string moneyString;
     

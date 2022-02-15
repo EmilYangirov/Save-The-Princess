@@ -4,14 +4,8 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour
 {
-
-    public float xMargin = 1.0f;       
-    public float yMargin = 1.0f;       
-    public float xSmooth = 8.0f;       
-    public float ySmooth = 8.0f;
-
-    public Vector2 maxXAndY;       
-    public Vector2 minXAndY;
+             
+    public float xSmooth = 8.0f;
     private Vector3 velocity = Vector3.zero;
 
 

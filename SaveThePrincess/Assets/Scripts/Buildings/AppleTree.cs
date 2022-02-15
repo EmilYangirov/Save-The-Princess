@@ -6,7 +6,7 @@ public class AppleTree : Building
 {
     private AppleSpawner spawner;   
 
-    private void Start()
+    public override void Start()
     {
         name = "Apple tree";
         GameObject apple = GameObject.FindWithTag("AppleTree");

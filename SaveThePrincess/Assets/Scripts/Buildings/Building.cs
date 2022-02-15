@@ -11,7 +11,7 @@ public class Building : LevelSystem
     protected string name;
     public Text nameText, costText;
 
-    public void Start()
+    public virtual void Start()
     {
         cost = 50;
         pMoney = (PlayerMoneys)FindObjectOfType(typeof(PlayerMoneys));
