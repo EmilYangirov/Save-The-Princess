@@ -105,13 +105,15 @@ public class SceneInfo : MonoBehaviour
     //change exist data in Lists
     private void ChangeData<T>(List<SaveDataByLevels<T>> data, SaveDataByLevels<T> element) 
     {
-       foreach(SaveDataByLevels<T> elements in data)
-       {
+        foreach(SaveDataByLevels<T> elements in data)
+        {
             if(elements.name == element.name)
             {
                 data.Remove(elements);
+                break;
             }
-       }
+        }        
+        
         data.Add(element);
     }
 
