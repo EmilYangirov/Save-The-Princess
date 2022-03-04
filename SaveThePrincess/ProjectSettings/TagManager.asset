@@ -22,6 +22,7 @@ TagManager:
   - neutral
   - powerbar
   - TeleportableBackGround
+  - weapon
   layers:
   - Default
   - TransparentFX

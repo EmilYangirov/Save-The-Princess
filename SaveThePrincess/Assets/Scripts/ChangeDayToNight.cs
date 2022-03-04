@@ -11,7 +11,8 @@ public class ChangeDayToNight : MonoBehaviour
     public float moonAndSunY = 10.3f;
     public int dayCount, dayTime;
     public Text dayCounter;
-  
+    
+    public bool night { get; private set; }
     private void Start()
     {
         dayParent = GameObject.FindWithTag("DaySprites").transform;
@@ -69,7 +70,7 @@ public class ChangeDayToNight : MonoBehaviour
     private IEnumerator ChangeDayAndNightSprites(List<SpriteRenderer> thatTime, List<SpriteRenderer> nextTime)
     {
         float time = 0;
-        while (time < 1f)
+        while (time < 1.5f)
         {
             for (int i = 0; i < thatTime.Count; i++)
             {
@@ -98,12 +99,14 @@ public class ChangeDayToNight : MonoBehaviour
         {
             StartCoroutine(ChangeSunAndMoon(sun));
             StartCoroutine(TimeChanger(true));
+            night = true;
         } else
         {
             StartCoroutine(ChangeSunAndMoon(moon));
             StartCoroutine(TimeChanger(false));
             dayCount++;
             dayCounter.text = "Day: " + dayCount;
+            night = false;
         }
     }
 

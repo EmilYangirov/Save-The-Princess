@@ -134,22 +134,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a5d79a3810b16c4a9bb423a3b1535e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 0
   damage: 2.5
   speed: 350000
   power: 125000
   attackRadius: 3.5
   attackDelay: 2
   damageModifier: 0
-  baseHealth: 10
+  baseHealth: 0
   baseDamage: 2.5
   maxHealth: 15
   attackCenter: {fileID: 6022066556791771571}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2048
-  drops:
-  - {fileID: 1713804023927228197, guid: c721647cfca6b6e469bf32c38963c99c, type: 3}
+  drops: []
   AttackAnimCount: 3
   chBars: []
   itsAttack: 0
@@ -159,6 +158,7 @@ MonoBehaviour:
     type: 3}
   rangeAttackPosition: {fileID: 3680905068605075531}
   spawner: {fileID: 820351081}
+  creatorSpawner: {fileID: 0}
 --- !u!114 &820351081
 MonoBehaviour:
   m_ObjectHideFlags: 0

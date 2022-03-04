@@ -13,7 +13,7 @@ public class Building : LevelSystem
 
     public virtual void Start()
     {
-        cost = 50;
+        cost = 0;
         pMoney = (PlayerMoneys)FindObjectOfType(typeof(PlayerMoneys));
         SetStats();
     }        
@@ -21,7 +21,7 @@ public class Building : LevelSystem
     public override void IncreaseLvl()
     {
         bool check = pMoney.CheckMoneys(cost);
-        if (check)
+        if (check && level < maxLevel)
         {                       
             pMoney.Buy(cost);
             level++;
@@ -32,8 +32,14 @@ public class Building : LevelSystem
 
     public override void SetStats()
     {                
-        cost = level * cost * 2 + cost;
+        cost = cost * 2 + cost;
+        
+        if(level < maxLevel)
+            costText.text = "New level: " + cost;
+        else
+            costText.text = "Max level";
+
         nameText.text = name + ", level: " + level;
-        costText.text = "New level: " + cost;
+        
     }
 }

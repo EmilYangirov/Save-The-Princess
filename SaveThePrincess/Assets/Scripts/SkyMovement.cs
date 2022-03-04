@@ -12,7 +12,7 @@ public class SkyMovement : MonoBehaviour
     {
         sky = GameObject.FindGameObjectsWithTag("Sky");
     }
-    private void Update()
+    private void FixedUpdate()
     {
         MoveClouds();
     }
@@ -20,16 +20,17 @@ public class SkyMovement : MonoBehaviour
     {
         for (int i = 0; i < sky.Length; i++)
         {
-            if (sky[i].transform.localPosition.x >= xPosition)
-            {
-                float y = sky[i].transform.localPosition.y;
-                float z = sky[i].transform.localPosition.z;
+            float y = sky[i].transform.localPosition.y;
+            float z = sky[i].transform.localPosition.z;
+
+            if (sky[i].transform.localPosition.x > xPosition)
+            {            
 
                 sky[i].transform.localPosition = Vector3.MoveTowards(sky[i].transform.localPosition, new Vector3(xPosition,y,z), speed);
             }
             else
             {
-                sky[i].transform.localPosition = new Vector3(0, sky[i].transform.localPosition.y, sky[i].transform.localPosition.z);
+                sky[i].transform.localPosition = new Vector3(0, y, z);
             }
         }
     }

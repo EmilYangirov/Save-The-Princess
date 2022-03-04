@@ -49,7 +49,7 @@ public class Weapons : LevelSystem
 
     public override void SetStats()
     {
-        character.damageModifier = level;
+        character.damageModifier = level/2;
         character.ModifyCharacterStats();
     }
 }

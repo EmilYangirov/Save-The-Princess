@@ -7,11 +7,12 @@ public class EntEnemy : Enemy
     public GameObject rangeAttackMissle;
     public Transform rangeAttackPosition;
     public AppleSpawner spawner;
+    [HideInInspector]
+    public AppleSpawner creatorSpawner;
 
     public new void FixedUpdate()
     {
         base.FixedUpdate();
-        Attack();
     }
     public new void Attack()
     {

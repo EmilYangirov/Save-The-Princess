@@ -24,9 +24,7 @@ public abstract class Neutral : Enemy
             StartCoroutine(WaitToChangeTarget());            
         }
         if (dist > walkDist)
-            ChooseTarget();
-        
-        Attack();
+            ChooseTarget();        
     }
     //choose target in agressive mode or neutral
     public override void ChooseTarget()

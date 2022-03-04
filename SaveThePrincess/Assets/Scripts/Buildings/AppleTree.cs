@@ -9,8 +9,8 @@ public class AppleTree : Building
     public override void Start()
     {
         name = "Apple tree";
-        GameObject apple = GameObject.FindWithTag("AppleTree");
-        spawner = apple.GetComponent<AppleSpawner>();
+        GameObject parent = transform.parent.gameObject;
+        spawner = parent.GetComponent<AppleSpawner>();
         base.Start();       
         spawner.maxAppleCount = 1;
 

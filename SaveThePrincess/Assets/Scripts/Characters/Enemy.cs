@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : Character
+public class Enemy : Character
 {
     protected Transform target;
     public float attackDist, walkDist;
@@ -16,6 +16,7 @@ public abstract class Enemy : Character
     {
         base.FixedUpdate();
         dist = Vector2.Distance(transform.position, target.position);
+        Attack();
     }
     public override void Walk()
     {        

@@ -6,7 +6,7 @@ public abstract class Character : MonoBehaviour, IHitableObject
 {
     public float health, damage, speed, power, attackRadius, attackDelay;
     public float damageModifier, baseHealth, baseDamage;
-    public float maxHealth;
+    public float maxHealth;    
     public Transform attackCenter;
     public LayerMask enemyLayers;
     protected Animator anim;
@@ -18,11 +18,11 @@ public abstract class Character : MonoBehaviour, IHitableObject
     protected bool flip;
     public bool itsAttack = false;
 
-    public void Start()
+    public virtual void Start()
     {
         anim = gameObject.GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody2D>();
-        ModifyCharacterStats();
+        ModifyCharacterStats();        
     }
 
     public abstract void Walk();
@@ -137,5 +137,16 @@ public abstract class Character : MonoBehaviour, IHitableObject
     {
         health = baseHealth;
         damage = baseDamage + damageModifier;
+        CheckBars();
+    } 
+    
+    public void IncreaseHealth(float value)
+    {
+        if (health + value <= maxHealth)
+            health += value;
+        else
+            health = maxHealth;
+
+        CheckBars();
     }
 }

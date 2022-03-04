@@ -21,12 +21,15 @@ public class CharacterLvl : LevelSystem
 
     public override void IncreaseLvl()
     {
-        level++;
-        if (lvlText != null)
+        if(level < maxLevel)
         {
-            lvlText.text = lvlString + level;
-        }
-        SetStats();
+            level++;
+            if (lvlText != null)
+            {
+                lvlText.text = lvlString + level;
+            }
+            SetStats();
+        }       
     }
     
     public override void SetStats()
@@ -41,7 +44,7 @@ public class CharacterLvl : LevelSystem
     {
         value += addValue;
         ch.CheckBars();
-        if (value >= valueToIncreaseLvl)
+        while (value >= valueToIncreaseLvl)
         {
             value = value - valueToIncreaseLvl;
             valueToIncreaseLvl *= 2;

@@ -5,35 +5,32 @@ using UnityEngine.UI;
 
 public class ChangeUISize : MonoBehaviour
 {
-    private Transform target, player;
     public RectTransform uiTransform;
     private Vector2 startScale;
+    private bool fullSize;
 
-    private void Start()
-    {
-        target = transform;        
-        player = GameObject.FindWithTag("Character").transform;
+    public virtual void Start()
+    {                
         startScale = uiTransform.localScale;
         uiTransform.localScale = new Vector2(0, 0);
-
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void CloseAndShowUiElement()
     {
-        if(other.transform == player)
+        StopAllCoroutines();
+
+        if (fullSize)
         {
-            StopAllCoroutines();
-            StartCoroutine(ChangeSize(startScale));            
+            StartCoroutine(ChangeSize(Vector2.zero));
+            fullSize = false;
+        }
+        else
+        {
+            StartCoroutine(ChangeSize(startScale));
+            fullSize = true;
         }
     }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.transform == player)
-        {
-            StopAllCoroutines();
-            StartCoroutine(ChangeSize(new Vector2(0, 0)));
-        }
-    }
+    
     private IEnumerator ChangeSize(Vector2 size)
     {
         float time = 0;

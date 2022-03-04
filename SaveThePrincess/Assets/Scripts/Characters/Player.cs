@@ -6,8 +6,15 @@ using UnityEngine.EventSystems;
 public class Player : Character
 {
     public FloatingJoystick fJoystick;
+    private ChangeUISize endScreen;
+
     [HideInInspector] public float foods;     
 
+    public override void Start()
+    {
+        base.Start();
+        endScreen = GetComponent<ChangeUISize>();
+    }
     public override void FixedUpdate()
     {
         base.FixedUpdate();
@@ -49,6 +56,12 @@ public class Player : Character
                 base.FlipCharacter();
             }
         }
+    }
+
+    public override void Death()
+    {
+        endScreen.CloseAndShowUiElement();
+        base.Death();
     }
 
 }

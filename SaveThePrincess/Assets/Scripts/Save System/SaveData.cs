@@ -7,17 +7,21 @@ namespace SaveSystem
     {
         public int money;
 
+        public float characterLvlValue;
+
         public List<SaveDataByLevels<float>> healthOfTowers;
 
         public List<SaveDataByLevels<int>> currentDayOfLevels;
 
         public List<SaveDataByLevels<int>> levelsOfGameObjects;
 
-        public SaveData(int _money, List<SaveDataByLevels<float>> _healthOfTowers,
+        public SaveData(int _money, float _characterLvlValue,  
+                                    List<SaveDataByLevels<float>> _healthOfTowers,
                                     List<SaveDataByLevels<int>> _currentDayOfLevels, 
                                     List<SaveDataByLevels<int>> _levelsOfGameObjects)
         {
             money = _money;
+            characterLvlValue = _characterLvlValue;
             healthOfTowers = _healthOfTowers;
             currentDayOfLevels = _currentDayOfLevels;
             levelsOfGameObjects = _levelsOfGameObjects;

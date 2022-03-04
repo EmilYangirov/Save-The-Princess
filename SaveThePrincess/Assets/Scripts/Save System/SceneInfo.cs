@@ -12,6 +12,7 @@ public class SceneInfo : MonoBehaviour
     private ChangeDayToNight dayAndNight;        
     private PlayerMoneys moneySystem;
     private Tower tower;
+    private CharacterLvl charLvl;
 
     [SerializeField]
     private List<SaveDataByLevels<float>> _healthOfTowers;
@@ -31,8 +32,10 @@ public class SceneInfo : MonoBehaviour
         dayAndNight = LevelManager.GetComponent<ChangeDayToNight>();
         GameObject character = GameObject.FindGameObjectWithTag("Character");
         moneySystem = character.GetComponent<PlayerMoneys>();
+        charLvl = character.GetComponent<CharacterLvl>();
         GameObject tow = GameObject.FindGameObjectWithTag("tower");
         tower = tow.GetComponent<Tower>();
+        
        
         //load save file
         Load();
@@ -54,6 +57,9 @@ public class SceneInfo : MonoBehaviour
             
             //set moneys
             moneySystem.IncreaseMoneys(loadedData.money);
+
+            //set character level value
+            charLvl.ChangeValue(loadedData.characterLvlValue);
 
             //set towers health
             float currentHealth = GetValue<float>(_healthOfTowers, sceneName);
@@ -97,7 +103,7 @@ public class SceneInfo : MonoBehaviour
         }
         
         //create data
-        var data = new SaveData(moneySystem.moneys, _healthOfTowers, _currentDayOfLevels, _levelsOfGameObjects);                
+        var data = new SaveData(moneySystem.moneys, charLvl.value, _healthOfTowers, _currentDayOfLevels, _levelsOfGameObjects);                
 
         return data;
     }
