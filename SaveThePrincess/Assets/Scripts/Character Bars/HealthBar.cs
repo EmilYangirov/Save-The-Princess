@@ -6,7 +6,7 @@ public class HealthBar : CharacterBar
 {
     private Character character;
 
-    private void Start()
+    private void Awake()
     {
         character = gameObject.GetComponent<Character>();
         character.chBars.Add(this);

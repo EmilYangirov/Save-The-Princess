@@ -6,7 +6,7 @@ public class Forge : Building
 {
     private Weapons weaponScript;
     public override void Start()
-    {
+    {        
         GameObject characterWeapons = GameObject.FindGameObjectWithTag("weapon");
         weaponScript = characterWeapons.GetComponent<Weapons>();
         name = "Forge";
@@ -15,9 +15,14 @@ public class Forge : Building
 
     public override void IncreaseLvl()
     {
-        if (level < maxLevel)
-            weaponScript.IncreaseLvl();
+        bool check = pMoney.CheckMoneys(cost);
 
-        base.IncreaseLvl();        
+        if (check && level < maxLevel)
+        {
+            pMoney.Buy(cost);
+            level++;
+            weaponScript.IncreaseLvl();
+            SetStats();
+        }
     }
 }

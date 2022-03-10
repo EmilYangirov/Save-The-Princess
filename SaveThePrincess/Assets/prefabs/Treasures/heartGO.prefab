@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7659164643453142565}
   - component: {fileID: 7659164643453142570}
   - component: {fileID: 7262783300799243148}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: treasure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 7659164643537370861}
   - component: {fileID: 7659164643537370771}
   - component: {fileID: 4990681385593988255}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: heartGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,3 +242,5 @@ MonoBehaviour:
   scorePrefab: {fileID: 7562697510759197341, guid: 5e426925e41bfb8439516eed016cad44,
     type: 3}
   livetime: 4
+  pickupAudio:
+  - {fileID: 8300000, guid: c9672133211b2dc4e88508e4444292c1, type: 3}

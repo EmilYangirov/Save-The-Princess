@@ -6,7 +6,8 @@ public abstract class LevelSystem : MonoBehaviour
 {
     public int level;
 
-    protected int maxLevel = 10;
+    [SerializeField]
+    protected int maxLevel;
     public abstract void IncreaseLvl();
     public abstract void SetStats();
 }

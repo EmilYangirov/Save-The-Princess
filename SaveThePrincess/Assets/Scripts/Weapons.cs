@@ -3,27 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Weapons : LevelSystem
-{
-    public Transform bone;
+{   
     private Character character;
-    
-    
+        
     private void Start()
-    {
+    {        
         Transform parent = transform.parent;
         character = parent.gameObject.GetComponent<Character>();
         ChooseWeapon(level);
-    }
-
-    private void Update()
-    {
-        BindPosition();
-    }
-
-    private void BindPosition()
-    {
-        transform.position = bone.position;
-        transform.rotation = bone.rotation;
     }
 
     private void ChooseWeapon(int weaponNum)
@@ -49,7 +36,8 @@ public class Weapons : LevelSystem
 
     public override void SetStats()
     {
-        character.damageModifier = level/2;
-        character.ModifyCharacterStats();
+        float damageByWeapon = (float)level / 2;
+        character.damageModifier = damageByWeapon;
+        character.ModifyCharacterDamage();
     }
 }

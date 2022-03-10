@@ -8,11 +8,10 @@ public class AppleTree : Building
 
     public override void Start()
     {
-        name = "Apple tree";
+        name = "Apple tree";        
         GameObject parent = transform.parent.gameObject;
         spawner = parent.GetComponent<AppleSpawner>();
         base.Start();       
-        spawner.maxAppleCount = 1;
 
     }
 
@@ -22,10 +21,13 @@ public class AppleTree : Building
         if (level >= 5)
         {
             spawner.canSpawn = true;
+            spawner.typeOfApple = 1;
+        } 
+        else 
+        {            
+            spawner.typeOfApple = 0;
         }
-        else
-        {
-            spawner.maxAppleCount++;
-        }
+
+        spawner.maxAppleCount = level;
     }
 }

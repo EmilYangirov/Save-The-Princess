@@ -158,10 +158,9 @@ MonoBehaviour:
   speed: 75000
   power: 50000
   attackRadius: 1.5
-  attackDelay: 1.5
+  attackDelay: 1.2
   damageModifier: 0
-  baseHealth: 6
-  baseDamage: 0.5
+  baseDamage: 1
   maxHealth: 6
   attackCenter: {fileID: 5366419658012071690}
   enemyLayers:
@@ -172,6 +171,16 @@ MonoBehaviour:
   - {fileID: 3134039581934617286, guid: 7d9fabe3e1c1eab438030b730520036a, type: 3}
   AttackAnimCount: 3
   chBars: []
+  walkSounds:
+  - {fileID: 8300000, guid: e2b74d9498341c141a36c14dfdd6929a, type: 3}
+  attackSound:
+  - {fileID: 8300000, guid: 8daa15bb4a5685945b239445453cd966, type: 3}
+  - {fileID: 8300000, guid: 3734ad9f3c318c843908f965820c14f1, type: 3}
+  - {fileID: 8300000, guid: 55c81b59b3a90dc45babef321cf9994d, type: 3}
+  hitSound:
+  - {fileID: 8300000, guid: 5a3543bcb945f02479a050981abb624d, type: 3}
+  - {fileID: 8300000, guid: 7e695eddcbfbbb64e8ff96396e686d4f, type: 3}
+  - {fileID: 8300000, guid: 3d04ffb8a57f68547b984f89a37bb7f7, type: 3}
   itsAttack: 0
   attackDist: 5
   walkDist: 200
@@ -994,7 +1003,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 3099883431473883152}
   m_Bounds:
-    m_Center: {x: 0.0021278858, y: 0.0020480156, z: 0}
+    m_Center: {x: 0.0021278858, y: 0.002048254, z: 0}
     m_Extent: {x: 2.67788, y: 3.1879501, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1

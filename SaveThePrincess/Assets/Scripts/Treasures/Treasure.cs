@@ -8,9 +8,15 @@ public abstract class Treasure : MonoBehaviour
     protected Transform player;
     public GameObject scorePrefab;
     public float livetime;
+    private bool picked;
 
+    [SerializeField]
+    private AudioClip[] pickupAudio;
+
+    private SoundPlayer soundPlayer;
     private void Start()
     {
+        soundPlayer = new SoundPlayer(gameObject);
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
         int a = Random.Range(-750, 750);
         rb.AddForce(Vector2.right * a);
@@ -19,13 +25,15 @@ public abstract class Treasure : MonoBehaviour
     }    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Character")
+        if (collision.gameObject.tag == "Character" && !picked)
         {
+            picked = true;
             player = collision.transform;
             Debug.Log(player.name);
-            Instantiate(scorePrefab, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            Instantiate(scorePrefab, transform.position, Quaternion.identity);            
             GiveStats();
+            StartCoroutine(DeathCoroutine());
+            soundPlayer.PlaySound(pickupAudio);
         }       
     }
     IEnumerator Life()

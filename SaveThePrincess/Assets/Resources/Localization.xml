@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<keys xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<key Name="Money">
+		<Translates>
+			<en-us>Money</en-us>
+			<ru>Монеты</ru>
+		</Translates>
+	</key>
+	<key Name="Level">
+		<Translates>
+			<en-us>Level</en-us>
+			<ru>Уровень</ru>
+		</Translates>
+	</key>
+	<key Name="Day">
+		<Translates>
+			<en-us>Day</en-us>
+			<ru>День</ru>
+		</Translates>
+	</key>
+	<key Name="TowerHealth">
+		<Translates>
+			<en-us>Tower strength</en-us>
+			<ru>Прочность башни</ru>
+		</Translates>
+	</key>
+	<key Name="ChickenFarm">
+		<Translates>
+			<en-us>Chicken farm</en-us>
+			<ru>Курятник</ru>
+		</Translates>
+	</key>
+	<key Name="AppleTree">
+		<Translates>
+			<en-us>Apple tree</en-us>
+			<ru>Яблоня</ru>
+		</Translates>
+	</key>
+	<key Name="Forge">
+		<Translates>
+			<en-us>Forge</en-us>
+			<ru>Кузница</ru>
+		</Translates>
+	</key>
+	<key Name="NewLevel">
+		<Translates>
+			<en-us>New level</en-us>
+			<ru>Новый уровень</ru>
+		</Translates>
+	</key>
+	<key Name="MaxLevel">
+		<Translates>
+			<en-us>Max level</en-us>
+			<ru>Максимальный уровень</ru>
+		</Translates>
+	</key>
+	<key Name="Upgrade">
+		<Translates>
+			<en-us>Upgrade</en-us>
+			<ru>Улучшить</ru>
+		</Translates>
+	</key>
+	<key Name="Loose">
+		<Translates>
+			<en-us>You loose</en-us>
+			<ru>Вы проиграли</ru>
+		</Translates>
+	</key>
+	<key Name="ResurrectionCost">
+		<Translates>
+			<en-us>Resurrection Price</en-us>
+			<ru>Стоимость  возрождения</ru>
+		</Translates>
+	</key>
+	<key Name="FreeResurrection">
+		<Translates>
+			<en-us>Watch video ad and get a free resurrection</en-us>
+			<ru>Бесплатное возрождение за просмотр видео рекламы</ru>
+		</Translates>
+	</key>
+	<key Name="ResurrectButton">
+		<Translates>
+			<en-us>Resurrect</en-us>
+			<ru>Воскреситься</ru>
+		</Translates>
+	</key>
+	<key Name="FreeResurrectionButton">
+		<Translates>
+			<en-us>Get free rebirth</en-us>
+			<ru>Бесплатное возрождение</ru>
+		</Translates>
+	</key>
+	<key Name="Congratulations">
+		<Translates>
+			<en-us>Congratulations</en-us>
+			<ru>Поздравляем</ru>
+		</Translates>
+	</key>
+	<key Name="YouWin">
+		<Translates>
+			<en-us>You win! The tower is destroyed and your princess is saved!</en-us>
+			<ru>Вы победили! Башня разрушена и ваша принцесса спасена!</ru>
+		</Translates>
+	</key>
+</keys>

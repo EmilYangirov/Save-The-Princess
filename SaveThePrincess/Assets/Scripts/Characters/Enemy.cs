@@ -24,6 +24,7 @@ public class Enemy : Character
         {
             rb.AddForce(Vector2.right*Mathf.Sign(target.position.x - transform.position.x) * speed *Time.deltaTime);
             anim.SetBool("walk", true);
+            base.Walk();
         } else 
         {
             anim.SetBool("walk", false);            

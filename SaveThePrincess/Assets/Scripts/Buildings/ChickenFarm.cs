@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
 public class ChickenFarm : Building
 {
     public GameObject[] SpawnGO;    
-    private int chickenType;
+    private int chickenType = 0;
     public int ChickenCount;
     [HideInInspector]  public List<GameObject> SpawnedChickens;
     public int spawnTimer;
@@ -16,11 +17,9 @@ public class ChickenFarm : Building
 
     public override void Start()
     {
-        name = "Chicken farm";
+        name = "Chicken farm";        
         base.Start();
         timer = spawnTimer;
-        chickenType = 0;
-        ChickenCount = 0;
     }
     void Update()
     {
@@ -49,7 +48,7 @@ public class ChickenFarm : Building
     }
     private void CheckChicken()
     {
-        foreach (GameObject chicken in SpawnedChickens)
+        foreach (GameObject chicken in SpawnedChickens.ToList())
         {
             if (chicken == null)
             {
@@ -64,9 +63,8 @@ public class ChickenFarm : Building
         if (level >= 5)
         {
             chickenType = 1;
-        } else
-        {
-            ChickenCount++;
         }
+
+        ChickenCount = level;
     }
 }

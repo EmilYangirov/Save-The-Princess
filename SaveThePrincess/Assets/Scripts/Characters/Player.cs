@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class Player : Character
 {
     public FloatingJoystick fJoystick;
-    private ChangeUISize endScreen;
+
+    public UnityEvent OnDeath;
 
     [HideInInspector] public float foods;     
 
     public override void Start()
     {
         base.Start();
-        endScreen = GetComponent<ChangeUISize>();
     }
     public override void FixedUpdate()
     {
@@ -34,6 +34,7 @@ public class Player : Character
             anim.SetBool("run", true);
             FlipCharacter();
             rb.AddForce(Vector2.right * Mathf.Sign(fJoystick.Horizontal) * speed * Time.deltaTime);
+            base.Walk();
         } else
         {
             anim.SetBool("run", false);
@@ -60,8 +61,8 @@ public class Player : Character
 
     public override void Death()
     {
-        endScreen.CloseAndShowUiElement();
-        base.Death();
+        OnDeath.Invoke();
+        transform.position = new Vector2(1000, 1000);
+        rb.constraints = RigidbodyConstraints2D.FreezePosition;
     }
-
 }

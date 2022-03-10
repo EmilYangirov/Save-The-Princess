@@ -205,7 +205,7 @@ MonoBehaviour:
   - {fileID: 1686232158843395546}
   - {fileID: 1622830308957056914}
   m_Bounds:
-    m_Center: {x: -0.027138948, y: -0.002310872, z: 0}
+    m_Center: {x: -0.02712369, y: -0.002310872, z: 0}
     m_Extent: {x: 1.1434929, y: 1.6813977, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -309,7 +309,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 6673495079234418860}
   m_Bounds:
-    m_Center: {x: -0.21384752, y: 0.1314612, z: 0}
+    m_Center: {x: -0.21383226, y: 0.1314612, z: 0}
     m_Extent: {x: 1.2047513, y: 0.8603197, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -443,19 +443,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1fc49488a2f3694da6b302f60053eab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
+  health: 6
   damage: 1
   speed: 50000
   power: 10000
   attackRadius: 1
-  attackDelay: 0.7
-  maxHealth: 5
+  attackDelay: 0.8
+  damageModifier: 0
+  baseDamage: 1
+  maxHealth: 8
   attackCenter: {fileID: 1703594670551620243}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2048
-  drops: []
+  drops:
+  - {fileID: 2146714094151071758, guid: 6df6bbb012a62da4489c0a82f5e72cf1, type: 3}
   AttackAnimCount: 3
+  chBars: []
+  walkSounds:
+  - {fileID: 8300000, guid: e2b74d9498341c141a36c14dfdd6929a, type: 3}
+  attackSound:
+  - {fileID: 8300000, guid: 10cfe4405c416db4ca60606a61aeae33, type: 3}
+  - {fileID: 8300000, guid: 1130c2cbc9696254ba4f8c409bc0f41a, type: 3}
+  - {fileID: 8300000, guid: 3fc0a73ddeabf7445bbd347a77d22243, type: 3}
+  - {fileID: 8300000, guid: 08c56568453e07c4283742a40eec5bab, type: 3}
+  hitSound:
+  - {fileID: 8300000, guid: 93a42f0ff4801a444a05ab07823f9359, type: 3}
   itsAttack: 0
   attackDist: 3
   walkDist: 15
@@ -562,7 +575,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 6673495079234418860}
   m_Bounds:
-    m_Center: {x: -0.27367985, y: 0.0518713, z: 0}
+    m_Center: {x: -0.2736646, y: 0.051872253, z: 0}
     m_Extent: {x: 1.5899341, y: 1.4168524, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -831,7 +844,7 @@ MonoBehaviour:
   - {fileID: 1686232158843395546}
   - {fileID: 1622830308957056914}
   m_Bounds:
-    m_Center: {x: -0.027548432, y: -0.0026695728, z: 0}
+    m_Center: {x: -0.027517915, y: -0.0026695728, z: 0}
     m_Extent: {x: 1.2947345, y: 1.732327, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -966,8 +979,8 @@ MonoBehaviour:
   - {fileID: 6673495079234418860}
   - {fileID: 3840352136143111601}
   m_Bounds:
-    m_Center: {x: -0.12313604, y: 0.04076314, z: 0}
-    m_Extent: {x: 4.0622373, y: 3.7639883, z: 0}
+    m_Center: {x: -0.123123646, y: 0.04076314, z: 0}
+    m_Extent: {x: 4.0622396, y: 3.7639885, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3791706347738622808
@@ -1070,7 +1083,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 1686232158843395546}
   m_Bounds:
-    m_Center: {x: -0.08303666, y: -0.012796164, z: 0}
+    m_Center: {x: -0.08305192, y: -0.012796164, z: 0}
     m_Extent: {x: 1.2938721, y: 1.7499747, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1767,7 +1780,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 6673495079234418860}
   m_Bounds:
-    m_Center: {x: -0.3153801, y: 0.17003262, z: 0}
+    m_Center: {x: -0.31536484, y: 0.17003262, z: 0}
     m_Extent: {x: 1.2988913, y: 1.5703018, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1

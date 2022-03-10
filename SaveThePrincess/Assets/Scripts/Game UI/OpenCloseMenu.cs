@@ -39,7 +39,7 @@ public class OpenCloseMenu : MonoBehaviour
         {
             for (int i = 0; i < menuElements.Count; i++)
             {              
-                menuElements[i].anchoredPosition = Vector2.MoveTowards(menuElements[i].anchoredPosition, newPositions[i], 5);               
+                menuElements[i].anchoredPosition = Vector2.MoveTowards(menuElements[i].anchoredPosition, newPositions[i], 500*Time.deltaTime);               
             }
             time += Time.deltaTime;
             yield return null;

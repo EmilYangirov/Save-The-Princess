@@ -292,3 +292,9 @@ MonoBehaviour:
   scorePrefab: {fileID: 3854847542112604502, guid: d61e196b98f8e27409afcd48ce97711b,
     type: 3}
   livetime: 4
+  pickupAudio:
+  - {fileID: 8300000, guid: 3742e131005a3734fa9fa637e228617a, type: 3}
+  - {fileID: 8300000, guid: 79299c068743f1541824a4b381bdf2c8, type: 3}
+  - {fileID: 8300000, guid: 45160ddeb2ced024f8b7d538f58112d0, type: 3}
+  - {fileID: 8300000, guid: 45542493a61acca4689667532b3801c6, type: 3}
+  - {fileID: 8300000, guid: 157ca324456dca643a9fd8bbe2ee3124, type: 3}

@@ -6,7 +6,7 @@ public class UpgradeScreens : ChangeUISize
 {
     private Transform player;
 
-    public override void Start()
+    protected override void Start()
     {
         base.Start();
         player = GameObject.FindWithTag("Character").transform;

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1110392171714487769}
   - component: {fileID: 1110392171714487766}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: treasure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1110392171697905006}
   - component: {fileID: 1110392171697905007}
   - component: {fileID: 2199769924449713134}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: egg2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,3 +216,7 @@ MonoBehaviour:
   scorePrefab: {fileID: 2332896945288783685, guid: dc2be3ea83bf31c40840a79db770a0ef,
     type: 3}
   livetime: 4
+  pickupAudio:
+  - {fileID: 8300000, guid: f69010946276a424e9c5a351a5dac3b6, type: 3}
+  - {fileID: 8300000, guid: bae7e9418015c00428267457936ea271, type: 3}
+  - {fileID: 8300000, guid: 0db539b985b78b146884c1b475902d6d, type: 3}

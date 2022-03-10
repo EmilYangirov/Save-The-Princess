@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Character : MonoBehaviour, IHitableObject
 {
     public float health, damage, speed, power, attackRadius, attackDelay;
-    public float damageModifier, baseHealth, baseDamage;
+    public float damageModifier, baseDamage;
     public float maxHealth;    
     public Transform attackCenter;
     public LayerMask enemyLayers;
@@ -15,18 +15,38 @@ public abstract class Character : MonoBehaviour, IHitableObject
     public int AttackAnimCount;
     public List<CharacterBar> chBars;
 
+    [SerializeField]
+    private AudioClip[] walkSounds, attackSound, hitSound;
+
+    private SoundPlayer walkPlayer, attackPlayer, hitPlayer;
+
     protected bool flip;
     public bool itsAttack = false;
 
+    protected Character()
+    {
+        chBars = new List<CharacterBar>();
+    }
     public virtual void Start()
     {
+        //create sound players
+        walkPlayer = new SoundPlayer(gameObject);
+        attackPlayer = new SoundPlayer(gameObject);
+        hitPlayer = new SoundPlayer(gameObject);
+
         anim = gameObject.GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody2D>();
-        ModifyCharacterStats();        
+
+        health = maxHealth;
+        ModifyCharacterDamage();
+        CheckBars();
     }
 
-    public abstract void Walk();
-
+    public virtual void Walk()
+    {
+        //Play Sound
+        walkPlayer.PlaySound(walkSounds);
+    }
     public virtual void FixedUpdate()
     {
         Walk();
@@ -55,6 +75,8 @@ public abstract class Character : MonoBehaviour, IHitableObject
             }
             //attack wait
             StartCoroutine(ReloadCoroutine());
+            //Play Sound
+            attackPlayer.PlaySound(attackSound);
         }
     }
 
@@ -74,31 +96,38 @@ public abstract class Character : MonoBehaviour, IHitableObject
         //check death
         if (health <= 0)
         {
-            Death();
+            StartCoroutine(DeathCoroutine());
         }
         Debug.Log(getDamage);
+        //Play Sound
+        hitPlayer.PlaySound(hitSound);
     }
 
     public virtual void Death()
+    {        
+        Destroy(gameObject);
+    }
+
+    private void CreateDrop()
     {
         if (drops.Length != 0)
         {
             int randomDrop = Random.Range(0, drops.Length);
             Instantiate(drops[randomDrop], transform.position, Quaternion.identity);
         }
-        StartCoroutine(DeathCoroutine());        
     }
 
     private IEnumerator DeathCoroutine()
     {
+        CreateDrop();
         float time = 0;
         while (time < 1f)
         {
             transform.localScale = Vector2.Lerp(transform.localScale, new Vector2 (0,0), 8*Time.deltaTime);
             time += Time.deltaTime;
             yield return null;
-        }        
-        Destroy(gameObject);
+        }
+        Death();
     }
 
     protected IEnumerator ReloadCoroutine()
@@ -133,9 +162,8 @@ public abstract class Character : MonoBehaviour, IHitableObject
         }
     }
 
-    public void ModifyCharacterStats()
+    public void ModifyCharacterDamage()
     {
-        health = baseHealth;
         damage = baseDamage + damageModifier;
         CheckBars();
     } 
@@ -148,5 +176,5 @@ public abstract class Character : MonoBehaviour, IHitableObject
             health = maxHealth;
 
         CheckBars();
-    }
+    }    
 }

@@ -6,7 +6,7 @@ public class PowerBar : CharacterBar
 {
     private CharacterLvl characterLevel;
 
-    private new void Start()
+    private new void Awake()
     {
         Character ch = gameObject.GetComponent<Character>();
         ch.chBars.Add(this);

@@ -7,6 +7,10 @@ public class EntEnemy : Enemy
     public GameObject rangeAttackMissle;
     public Transform rangeAttackPosition;
     public AppleSpawner spawner;
+
+    [SerializeField]
+    private float rangeAttackDist;
+    
     [HideInInspector]
     public AppleSpawner creatorSpawner;
 
@@ -14,9 +18,9 @@ public class EntEnemy : Enemy
     {
         base.FixedUpdate();
     }
-    public new void Attack()
+    public override void Attack()
     {
-        if (dist >= walkDist && dist <= walkDist + 5)
+        if (dist >= rangeAttackDist && dist <= rangeAttackDist + 10)
         {
             if (!itsAttack)
             {
@@ -29,6 +33,18 @@ public class EntEnemy : Enemy
             base.Attack();
         }
     }
+
+    public override void Walk()
+    {
+        if (dist < rangeAttackDist || dist > rangeAttackDist + 10)
+        {
+            base.Walk();
+        } else
+        {
+            anim.SetBool("walk", false);
+        }
+    }
+
     //Play by event after range attack animation
     public void CreateMissle()
     {

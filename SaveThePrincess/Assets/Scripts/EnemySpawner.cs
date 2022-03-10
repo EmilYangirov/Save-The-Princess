@@ -9,7 +9,7 @@ public class EnemySpawner : LevelSystem
     public GameObject[] creaturesToSpawn;
     private Transform camera;
     private bool spawn = true;
-    private float timeToSpawn = 10;
+    private float timeToSpawn = 8;
     private int creaturesIndex;
     
     
@@ -23,25 +23,26 @@ public class EnemySpawner : LevelSystem
 
     private void Update()
     {
-        if (dayAndNight.dayCount % 3 == 0 && level != dayAndNight.dayCount % 3)
+        if (dayAndNight.dayCount % 3 == 0 && level != dayAndNight.dayCount / 3)
             IncreaseLvl();
 
-        if (spawn && dayAndNight.night)
-            SpawnCreatures();
+       // if (spawn && dayAndNight.night)                       
+            //SpawnCreatures();
     }
 
     public override void IncreaseLvl()
     {
-        int maxLvl = creaturesToSpawn.Length;
-
-        if (level < maxLvl)        
+        if (level < maxLevel)        
             level++;
 
         SetStats();
     }
     public override void SetStats()
     {
-        creaturesIndex = level;        
+        if (level < maxLevel)
+            creaturesIndex = level;
+        else
+            creaturesIndex = creaturesToSpawn.Length - 1;
     }
 
     private void SpawnCreatures()

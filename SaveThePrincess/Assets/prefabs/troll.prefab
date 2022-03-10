@@ -316,7 +316,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 1838077205643375617}
   m_Bounds:
-    m_Center: {x: 0.0000076293945, y: -0.00000023841858, z: 0}
+    m_Center: {x: -0.0000038146973, y: -0.00000023841858, z: 0}
     m_Extent: {x: 2.9899998, y: 2.3949997, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -586,7 +586,7 @@ MonoBehaviour:
   - {fileID: 2018420515098518904}
   - {fileID: 4284297384722686735}
   m_Bounds:
-    m_Center: {x: 0.00000011920929, y: -0.00000047683716, z: 0}
+    m_Center: {x: 0.00000011920929, y: 0, z: 0}
     m_Extent: {x: 1.1350005, y: 1.7350004, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -693,7 +693,7 @@ MonoBehaviour:
   - {fileID: 7957957493776730230}
   - {fileID: 7931698362025255224}
   m_Bounds:
-    m_Center: {x: -0.00000023841858, y: -0.0009188652, z: 0}
+    m_Center: {x: 0.0000035762787, y: -0.0009188652, z: 0}
     m_Extent: {x: 3.675, y: 4.73908, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -903,8 +903,8 @@ MonoBehaviour:
   - {fileID: 193336603445314182}
   - {fileID: 486720176292399340}
   m_Bounds:
-    m_Center: {x: -0.00088226795, y: -0.0000010728836, z: 0}
-    m_Extent: {x: 1.21626, y: 1.7950006, z: 0}
+    m_Center: {x: -0.00088989735, y: -0.000000834465, z: 0}
+    m_Extent: {x: 1.21626, y: 1.7950003, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &7585229940868318128
@@ -1029,15 +1029,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3653752923cbb4ba832b4f5e78f7bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  damage: 0
-  speed: 150000
+  health: 10
+  damage: 2
+  speed: 250000
   power: 75000
   attackRadius: 3.85
-  attackDelay: 3
+  attackDelay: 2
   damageModifier: 0
-  baseHealth: 10
-  baseDamage: 2
+  baseDamage: 2.5
   maxHealth: 10
   attackCenter: {fileID: 5659748207579660610}
   enemyLayers:
@@ -1045,8 +1044,19 @@ MonoBehaviour:
     m_Bits: 2048
   drops:
   - {fileID: 8712388840735235058, guid: b523fbb5888a6eb41b542b41e64329ec, type: 3}
+  - {fileID: 1946453443841132008, guid: 58df08f7479e73040b1b604e6f8f75b6, type: 3}
   AttackAnimCount: 1
   chBars: []
+  walkSounds:
+  - {fileID: 8300000, guid: 42ebb505a4640404980c97d503e7fecc, type: 3}
+  attackSound:
+  - {fileID: 8300000, guid: b5cdbf87901020049829b759000f5156, type: 3}
+  - {fileID: 8300000, guid: d143daeeba12d114faccbc6bc8c6c1c5, type: 3}
+  - {fileID: 8300000, guid: 7644b766c1aaf054fbccf995fc50dbb2, type: 3}
+  hitSound:
+  - {fileID: 8300000, guid: 2292ba1eabaa3564eb29d06dd0f0af69, type: 3}
+  - {fileID: 8300000, guid: 08d12bb129b23414787c76bbe20d11f0, type: 3}
+  - {fileID: 8300000, guid: 3fe0dd2074889874d92530ade227077d, type: 3}
   itsAttack: 0
   attackDist: 3
   walkDist: 200

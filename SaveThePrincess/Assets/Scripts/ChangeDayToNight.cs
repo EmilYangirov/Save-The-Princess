@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class ChangeDayToNight : MonoBehaviour
 {
@@ -10,17 +10,23 @@ public class ChangeDayToNight : MonoBehaviour
     private Transform dayParent, nightParent, moon, sun;
     public float moonAndSunY = 10.3f;
     public int dayCount, dayTime;
-    public Text dayCounter;
-    
+    public TextMeshPro dayCounter;
+
+    [SerializeField]
+    private AudioClip dayAudio, nightAudio;
+
+    private SoundPlayer soundPlayer;
     public bool night { get; private set; }
     private void Start()
     {
+        soundPlayer = new SoundPlayer(gameObject);
         dayParent = GameObject.FindWithTag("DaySprites").transform;
         nightParent = GameObject.FindWithTag("NightSprites").transform;
         moon = GameObject.FindWithTag("moon").transform;
         sun = GameObject.FindWithTag("sun").transform;
         GetChilds(dayParent, daySprites);
         GetChilds(nightParent, nightSprites);
+
         dayCounter.text = "Day: " + dayCount;
         StartCoroutine(TimeChanger(false));
     }
@@ -100,6 +106,7 @@ public class ChangeDayToNight : MonoBehaviour
             StartCoroutine(ChangeSunAndMoon(sun));
             StartCoroutine(TimeChanger(true));
             night = true;
+            soundPlayer.PlaySound(nightAudio);
         } else
         {
             StartCoroutine(ChangeSunAndMoon(moon));
@@ -107,6 +114,7 @@ public class ChangeDayToNight : MonoBehaviour
             dayCount++;
             dayCounter.text = "Day: " + dayCount;
             night = false;
+            soundPlayer.PlaySound(dayAudio);
         }
     }
 

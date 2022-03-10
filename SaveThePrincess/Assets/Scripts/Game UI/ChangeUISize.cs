@@ -9,13 +9,19 @@ public class ChangeUISize : MonoBehaviour
     private Vector2 startScale;
     private bool fullSize;
 
-    public virtual void Start()
-    {                
+    [SerializeField]
+    private AudioClip showAudio;
+
+    private SoundPlayer soundPlayer;
+
+    protected virtual void Start()
+    {
+        soundPlayer = new SoundPlayer(gameObject);
         startScale = uiTransform.localScale;
         uiTransform.localScale = new Vector2(0, 0);
     }
 
-    public void CloseAndShowUiElement()
+    public virtual void CloseAndShowUiElement()
     {
         StopAllCoroutines();
 
@@ -28,6 +34,7 @@ public class ChangeUISize : MonoBehaviour
         {
             StartCoroutine(ChangeSize(startScale));
             fullSize = true;
+            soundPlayer.PlaySound(showAudio);
         }
     }
     

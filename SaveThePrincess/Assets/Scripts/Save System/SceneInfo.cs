@@ -58,9 +58,6 @@ public class SceneInfo : MonoBehaviour
             //set moneys
             moneySystem.IncreaseMoneys(loadedData.money);
 
-            //set character level value
-            charLvl.ChangeValue(loadedData.characterLvlValue);
-
             //set towers health
             float currentHealth = GetValue<float>(_healthOfTowers, sceneName);
             if(currentHealth!=0)
@@ -74,6 +71,9 @@ public class SceneInfo : MonoBehaviour
             {
                 levelSystems.level = GetValue<int>(_levelsOfGameObjects, levelSystems.gameObject.name);
             }
+
+            //set character level value
+            charLvl.ChangeValue(loadedData.characterLvlValue, true);
         }
 
     }
@@ -81,6 +81,11 @@ public class SceneInfo : MonoBehaviour
     public void Save()
     {       
         SaveCreator.Save(saveKey, GetSaveSnapshot());
+    }
+
+    public void DeleteKey()
+    {
+        PlayerPrefs.DeleteKey(saveKey);
     }
 
     private SaveData GetSaveSnapshot()

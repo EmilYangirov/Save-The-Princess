@@ -13,7 +13,7 @@ public class CharacterLvl : LevelSystem
     public string lvlString;
 
     protected void Start()
-    {
+    {        
         ch = gameObject.GetComponent<Character>();
         lvlText.text = lvlString + level;
         SetStats();
@@ -34,21 +34,26 @@ public class CharacterLvl : LevelSystem
     
     public override void SetStats()
     {
-        ch.baseHealth = healthByLvl[level];
+        valueToIncreaseLvl = 5 + 5 * level;
+        ch.maxHealth = healthByLvl[level];
         ch.baseDamage = damageByLvl[level];
-        ch.ModifyCharacterStats();
-        ch.CheckBars();
+        ch.ModifyCharacterDamage();
     }
 
-    public void ChangeValue(float addValue)
+    public void ChangeValue(float addValue, bool start = false)
     {
         value += addValue;
-        ch.CheckBars();
-        while (value >= valueToIncreaseLvl)
+        if (!start)
         {
-            value = value - valueToIncreaseLvl;
-            valueToIncreaseLvl *= 2;
-            IncreaseLvl();
+            while (value >= valueToIncreaseLvl)
+            {
+                value = value - valueToIncreaseLvl;                
+                IncreaseLvl();
+            }
+
+            SetStats();
         }
+
     }
+
 }

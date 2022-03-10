@@ -5,8 +5,8 @@ using UnityEngine;
 public class AppleSpawner : MonoBehaviour, IHitableObject
 {
     public List<Transform> apples;
-    public GameObject spawnGO;
-    public GameObject treasureGO;
+    public GameObject[] spawnGO;
+    public GameObject[] treasureGO;
     public Collider2D spawnArea;
     public float timeToSpawn, maxAppleCount;
     public bool canSpawn;
@@ -14,9 +14,16 @@ public class AppleSpawner : MonoBehaviour, IHitableObject
     private GameObject spawnedTree;
     private bool spawn=true, dead;
     private Animator anim;
+    public int typeOfApple = 0;
+
+    [SerializeField]
+    private AudioClip[] hitAudio;
+
+    private SoundPlayer soundPlayer;
 
     private void Start()
     {
+        soundPlayer = new SoundPlayer(gameObject);
         anim = GetComponent<Animator>();
     }
     public static Vector2 RandomPointInBounds(Bounds bounds)
@@ -40,7 +47,7 @@ public class AppleSpawner : MonoBehaviour, IHitableObject
         if (spawn && apples.Count < maxAppleCount)
         {
             Vector2 randomSpawn = RandomPointInBounds(spawnArea.bounds);
-            GameObject newapple = Instantiate(spawnGO, randomSpawn, Quaternion.identity);
+            GameObject newapple = Instantiate(spawnGO[typeOfApple], randomSpawn, Quaternion.identity);
             newapple.transform.SetParent(spawnArea.transform);
             apples.Add(newapple.transform);
             spawn = false;
@@ -53,7 +60,7 @@ public class AppleSpawner : MonoBehaviour, IHitableObject
         anim.SetTrigger("hit");
         for (int i = 0; i < apples.Count; i++)
         {
-            GameObject newapple = Instantiate(treasureGO, apples[i].position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));
+            GameObject newapple = Instantiate(treasureGO[typeOfApple], apples[i].position, Quaternion.Euler(0.0f, 0.0f, Random.Range(0.0f, 360.0f)));
             Destroy(apples[i].gameObject);            
         }
         apples.Clear();
@@ -62,6 +69,8 @@ public class AppleSpawner : MonoBehaviour, IHitableObject
 
         if (canSpawn)
             anim.SetBool("dead", true);
+
+        soundPlayer.PlaySound(hitAudio);
     }
     public void ComeToAlive()
     {

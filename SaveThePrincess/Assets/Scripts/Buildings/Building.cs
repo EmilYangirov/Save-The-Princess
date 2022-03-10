@@ -6,14 +6,20 @@ using UnityEngine.UI;
 public class Building : LevelSystem
 {
     protected int cost;
-    private PlayerMoneys pMoney;
+    protected PlayerMoneys pMoney;
 
     protected string name;
     public Text nameText, costText;
 
     public virtual void Start()
     {
-        cost = 0;
+        cost = 50;
+
+        for (int i = 0; i < level; i++)
+        {
+            cost = cost * 2;
+        }
+
         pMoney = (PlayerMoneys)FindObjectOfType(typeof(PlayerMoneys));
         SetStats();
     }        
@@ -32,7 +38,7 @@ public class Building : LevelSystem
 
     public override void SetStats()
     {                
-        cost = cost * 2 + cost;
+        cost = cost * 2;
         
         if(level < maxLevel)
             costText.text = "New level: " + cost;
