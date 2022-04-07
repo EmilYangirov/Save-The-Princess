@@ -23,6 +23,7 @@ TagManager:
   - powerbar
   - TeleportableBackGround
   - weapon
+  - DialogueManager
   layers:
   - Default
   - TransparentFX

@@ -1,16 +1,18 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
+[RequireComponent(typeof(TextMeshProUGUI))]
 public class TextLocalization : MonoBehaviour
 {
-    private Text text;
+    [SerializeField]
+    private TextMeshProUGUI text;
     private string key;
 
     private void Start()
     {
         Localize();
         Localization.OnLanguageChange += OnLanguageChange;
-    }
+    }    
 
     private void OnLanguageChange()
     {
@@ -18,7 +20,7 @@ public class TextLocalization : MonoBehaviour
     }
     private void Init()
     {
-        text = GetComponent<Text>();
+        text = GetComponent<TextMeshProUGUI>();
         key = text.text;
     }
 
@@ -26,11 +28,13 @@ public class TextLocalization : MonoBehaviour
     {
         if (text == null)
             Init();
-        else
+        
+        if(newKey != null)
             key = newKey;
 
-        text.text = Localization.GetTranslate(key);
+            text.text = Localization.GetTranslate(key);
     }
+   
 
     private void OnDestroy()
     {

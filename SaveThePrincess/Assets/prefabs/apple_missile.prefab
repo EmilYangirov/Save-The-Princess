@@ -114,12 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5de75bc471973394b9bf2da0a3777a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity_acceleration: 80
-  start_angle: 45
-  start_velocity: 80
+  startAngle: 45
+  gravityAcceleration: 45
   targetPos: {x: 0, y: 0}
-  startPos: {x: 0, y: 0}
-  timer: 0
 --- !u!114 &7421798817209965079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,7 +132,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2048
-  damage: 1
+  damage: 3.5
   attackRadius: 1
   lifeTime: 5
 --- !u!50 &9035818043650847248

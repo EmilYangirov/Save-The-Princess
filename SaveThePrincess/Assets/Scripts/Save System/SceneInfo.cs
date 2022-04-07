@@ -13,6 +13,7 @@ public class SceneInfo : MonoBehaviour
     private PlayerMoneys moneySystem;
     private Tower tower;
     private CharacterLvl charLvl;
+    private DialogueManager dialogueManager;
 
     [SerializeField]
     private List<SaveDataByLevels<float>> _healthOfTowers;
@@ -35,8 +36,9 @@ public class SceneInfo : MonoBehaviour
         charLvl = character.GetComponent<CharacterLvl>();
         GameObject tow = GameObject.FindGameObjectWithTag("tower");
         tower = tow.GetComponent<Tower>();
-        
-       
+        GameObject dialogue = GameObject.FindGameObjectWithTag("DialogueManager");
+        dialogueManager = dialogue.GetComponent<DialogueManager>();
+
         //load save file
         Load();
     }
@@ -60,8 +62,11 @@ public class SceneInfo : MonoBehaviour
 
             //set towers health
             float currentHealth = GetValue<float>(_healthOfTowers, sceneName);
-            if(currentHealth!=0)
+            if (currentHealth != 0)
+            {
                 tower.health = GetValue<float>(_healthOfTowers, sceneName);
+                tower.healthBar.CheckBar();
+            }
             
             //set current day
             dayAndNight.dayCount = GetValue<int>(_currentDayOfLevels, sceneName);
@@ -70,13 +75,24 @@ public class SceneInfo : MonoBehaviour
             foreach (LevelSystem levelSystems in levelObjects)
             {
                 levelSystems.level = GetValue<int>(_levelsOfGameObjects, levelSystems.gameObject.name);
+                Debug.Log("installed " + levelSystems.level + " " + levelSystems.name);
             }
 
             //set character level value
             charLvl.ChangeValue(loadedData.characterLvlValue, true);
+        } else
+        {
+            StartCoroutine(ShowStartDialogue());
         }
 
     }
+
+    private IEnumerator ShowStartDialogue()
+    {
+        yield return new WaitForEndOfFrame();
+        dialogueManager.ShowDialogue(0);
+    }
+    
 
     public void Save()
     {       
@@ -138,5 +154,10 @@ public class SceneInfo : MonoBehaviour
         }
         return default(T);
     }
+
+    //private void OnApplicationQuit()
+    //{
+    //    Save();
+    //}
 
 }

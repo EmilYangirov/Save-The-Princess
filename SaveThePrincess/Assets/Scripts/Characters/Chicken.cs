@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Chicken : Neutral
 {
-    public float runSpeed;
-    public float walkSpeed;
+    [SerializeField]
+    protected float runSpeed;
+    [SerializeField]
+    protected float walkSpeed;
+    [SerializeField]
+    private GameObject[] lowHpDrops;
 
     public override void Hit(float getDamage, int dirKoeff, float enemyPower)
     {        
@@ -24,12 +28,20 @@ public class Chicken : Neutral
     }
 
     private void Run()
-    {
-        StopCoroutine(WaitToChangeTarget());
+    {        
         anim.SetFloat("chWalk", 1);
         speed = runSpeed;
-        walkDist = walkDist * 2;
-        ChooseTarget();
+        walkDist = walkDist * 2;        
     }
 
+    protected override GameObject[] ChooseDropsArray()
+    {
+        if (player.health < player.maxHealth)
+        {       
+            return lowHpDrops;
+        } else
+        {
+            return base.ChooseDropsArray();
+        } 
+    }
 }

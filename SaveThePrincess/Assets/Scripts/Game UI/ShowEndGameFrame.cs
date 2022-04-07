@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShowEndGameFrame : ChangeUISize
 {
     private AudioSource musicSource;
+    private bool gameEnded = false;
 
     protected override void Start()
     {
@@ -16,8 +17,11 @@ public class ShowEndGameFrame : ChangeUISize
 
     public override void CloseAndShowUiElement()
     {
-        base .CloseAndShowUiElement();
-
-        musicSource.mute = true;
+        if (!gameEnded)
+        {
+            base.CloseAndShowUiElement();
+            musicSource.mute = true;
+            gameEnded = true;
+        }
     }
 }

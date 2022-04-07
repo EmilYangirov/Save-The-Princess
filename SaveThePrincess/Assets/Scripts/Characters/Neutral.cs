@@ -9,11 +9,10 @@ public abstract class Neutral : Enemy
     private bool onPoint;
 
 
-    public new void Start()
+    public override void Start()
     {
-        base.Start();
         CreateTarget();
-        ChooseTarget();
+        base.Start();       
     }
     public override void FixedUpdate()
     {
@@ -69,5 +68,12 @@ public abstract class Neutral : Enemy
         }
           
         base.Death();        
+    }
+
+    public override void Hit(float getDamage, int dirKoeff, float enemyPower)
+    {
+        base.Hit(getDamage, dirKoeff, enemyPower);
+        StopCoroutine(WaitToChangeTarget());
+        ChooseTarget();
     }
 }

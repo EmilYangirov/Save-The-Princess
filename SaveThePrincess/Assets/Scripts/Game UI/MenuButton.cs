@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public abstract class MenuButton : MonoBehaviour
 {
-    private Image buttonImage;
+    protected Image buttonImage;
 
     [SerializeField]
-    private Sprite activeImage, inactiveImage;
+    protected Sprite activeImage, inactiveImage;
 
-    private bool imageChangeble;
+    protected bool imageChangeble;
 
     protected virtual void Start()
     {
@@ -27,7 +27,7 @@ public abstract class MenuButton : MonoBehaviour
         if (imageChangeble)
             ChangeButtonImage();
     }
-    protected void ChangeButtonImage()
+    protected virtual void ChangeButtonImage()
     {
         if(buttonImage.sprite == inactiveImage)
             buttonImage.sprite = activeImage;

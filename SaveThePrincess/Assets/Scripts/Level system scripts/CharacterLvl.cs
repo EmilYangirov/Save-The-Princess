@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class CharacterLvl : LevelSystem
 {
@@ -9,13 +9,15 @@ public class CharacterLvl : LevelSystem
     public float[] healthByLvl;
     public float value, valueToIncreaseLvl;
     private Character ch;
-    public Text lvlText;
-    public string lvlString;
+    public TextMeshProUGUI levelText;
+
+    [SerializeField]
+    private GameObject levelPrefab;
 
     protected void Start()
     {        
         ch = gameObject.GetComponent<Character>();
-        lvlText.text = lvlString + level;
+        levelText.text = ": " + level;
         SetStats();
     }
 
@@ -23,11 +25,15 @@ public class CharacterLvl : LevelSystem
     {
         if(level < maxLevel)
         {
+            GameObject levelUpGo = Instantiate(levelPrefab, Vector2.zero, Quaternion.identity, gameObject.transform);
+            levelUpGo.transform.localPosition = Vector2.zero; 
             level++;
-            if (lvlText != null)
+
+            if (levelText != null)
             {
-                lvlText.text = lvlString + level;
+                levelText.text = ": " + level;
             }
+
             SetStats();
         }       
     }
@@ -53,7 +59,17 @@ public class CharacterLvl : LevelSystem
 
             SetStats();
         }
+    }
 
+    public void DecreaseLevel (int decreaseValue)
+    {        
+        level -= decreaseValue;
+
+        if(decreaseValue > 0)
+            value = 0;
+
+        if (level < 0)
+            level = 0;
     }
 
 }

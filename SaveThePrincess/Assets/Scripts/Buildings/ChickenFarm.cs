@@ -16,8 +16,7 @@ public class ChickenFarm : Building
     private bool ok = false;
 
     public override void Start()
-    {
-        name = "Chicken farm";        
+    {       
         base.Start();
         timer = spawnTimer;
     }

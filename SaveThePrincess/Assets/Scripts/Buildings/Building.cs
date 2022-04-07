@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
+using UnityEngine.Events;
 
 public class Building : LevelSystem
 {
     protected int cost;
     protected PlayerMoneys pMoney;
 
-    protected string name;
-    public Text nameText, costText;
+    public TextMeshProUGUI nameText, costText;
+    public UnityEvent OnGetMaxLevel;
 
     public virtual void Start()
     {
@@ -39,13 +40,17 @@ public class Building : LevelSystem
     public override void SetStats()
     {                
         cost = cost * 2;
-        
-        if(level < maxLevel)
-            costText.text = "New level: " + cost;
-        else
-            costText.text = "Max level";
 
-        nameText.text = name + ", level: " + level;
+        if (level < maxLevel)
+        {
+            costText.text = ": " + cost;
+        } else
+        {
+            costText.text = "";
+            OnGetMaxLevel.Invoke();
+        }          
+
+        nameText.text = ": "+ level;
         
     }
 }

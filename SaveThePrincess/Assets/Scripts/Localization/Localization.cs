@@ -6,6 +6,7 @@ public class Localization : MonoBehaviour
 {
     public static int selectedLanguage { get; private set; }
 
+
     public delegate void LanguageChangeHandler();
     public static event LanguageChangeHandler OnLanguageChange;
 
@@ -16,6 +17,11 @@ public class Localization : MonoBehaviour
 
     private void Awake()
     {
+        if (Application.systemLanguage == SystemLanguage.Russian || Application.systemLanguage == SystemLanguage.Ukrainian || Application.systemLanguage == SystemLanguage.Belarusian)
+            selectedLanguage = 1;
+        else
+            selectedLanguage = 0;
+        
         if (localization == null)
             LoadLocalization();
     }
@@ -27,7 +33,7 @@ public class Localization : MonoBehaviour
         XmlDocument xmlDocument = new XmlDocument();
         xmlDocument.LoadXml(textFile.text);
 
-        foreach(XmlNode key in xmlDocument["Keys"].ChildNodes)
+        foreach(XmlNode key in xmlDocument["keys"].ChildNodes)
         {
             string keyString = key.Attributes["Name"].Value;
 

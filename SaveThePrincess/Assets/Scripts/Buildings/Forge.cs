@@ -9,7 +9,6 @@ public class Forge : Building
     {        
         GameObject characterWeapons = GameObject.FindGameObjectWithTag("weapon");
         weaponScript = characterWeapons.GetComponent<Weapons>();
-        name = "Forge";
         base.Start();        
     }
 

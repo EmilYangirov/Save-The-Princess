@@ -15,6 +15,9 @@ public class AppleSpawner : MonoBehaviour, IHitableObject
     private bool spawn=true, dead;
     private Animator anim;
     public int typeOfApple = 0;
+    private int timerToSpawn = 60;
+
+    private Coroutine spawnApplesTimer;
 
     [SerializeField]
     private AudioClip[] hitAudio;
@@ -51,7 +54,7 @@ public class AppleSpawner : MonoBehaviour, IHitableObject
             newapple.transform.SetParent(spawnArea.transform);
             apples.Add(newapple.transform);
             spawn = false;
-            StartCoroutine(Timer());            
+            spawnApplesTimer = StartCoroutine(Timer());            
         }
     }
 
@@ -64,8 +67,8 @@ public class AppleSpawner : MonoBehaviour, IHitableObject
             Destroy(apples[i].gameObject);            
         }
         apples.Clear();
-        StopAllCoroutines();
-        StartCoroutine(Timer());
+        StopCoroutine(spawnApplesTimer);
+        spawnApplesTimer = StartCoroutine(Timer());
 
         if (canSpawn)
             anim.SetBool("dead", true);
@@ -74,9 +77,10 @@ public class AppleSpawner : MonoBehaviour, IHitableObject
     }
     public void ComeToAlive()
     {
-        dead = false;
-        anim.SetBool("dead", false);      
-        StartCoroutine(Timer());
+        dead = false;             
+        anim.SetBool("dead", false);
+        PrepareToSpawn();
+        spawnApplesTimer = StartCoroutine(Timer());
         
     }
     private void SpawnEnt()
@@ -91,5 +95,22 @@ public class AppleSpawner : MonoBehaviour, IHitableObject
     {
         yield return new WaitForSeconds(timeToSpawn);
         spawn = true;
+    }
+
+    public void PrepareToSpawn()
+    {
+        canSpawn = false;
+        timerToSpawn = 60;
+        StartCoroutine(ChangeTimeToSpawnEnt());
+    }
+    private IEnumerator ChangeTimeToSpawnEnt()
+    {
+        yield return new WaitForSeconds(1);
+        timerToSpawn--;
+
+        if (timerToSpawn <= 0)
+            canSpawn = true;
+        else
+            StartCoroutine(ChangeTimeToSpawnEnt());
     }
 }

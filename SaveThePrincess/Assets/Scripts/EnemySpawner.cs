@@ -26,8 +26,8 @@ public class EnemySpawner : LevelSystem
         if (dayAndNight.dayCount % 3 == 0 && level != dayAndNight.dayCount / 3)
             IncreaseLvl();
 
-       // if (spawn && dayAndNight.night)                       
-            //SpawnCreatures();
+        if (spawn && dayAndNight.night)
+            SpawnCreatures();
     }
 
     public override void IncreaseLvl()
@@ -48,7 +48,7 @@ public class EnemySpawner : LevelSystem
     private void SpawnCreatures()
     {
         Vector2 spawnPosition = SpawnPosition();
-        int createCreature = Random.Range(0, creaturesIndex);
+        int createCreature = Random.Range(0, creaturesIndex+1);
         Instantiate(creaturesToSpawn[createCreature], spawnPosition, Quaternion.identity);
         spawn = false;
         StartCoroutine(Timer());
@@ -59,7 +59,7 @@ public class EnemySpawner : LevelSystem
         float x = Random.Range(minX, maxX);
         float cameraX = camera.position.x;
         
-        while(x>cameraX - 30 && x < cameraX + 30)
+        while(x>cameraX - 35 && x < cameraX + 35)
             x = Random.Range(minX, maxX);
 
         float y = -10;

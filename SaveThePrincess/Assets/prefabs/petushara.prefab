@@ -101,8 +101,8 @@ MonoBehaviour:
   - {fileID: 8170917694920036403}
   - {fileID: 1779557212315004206}
   m_Bounds:
-    m_Center: {x: -0.12313604, y: 0.04076314, z: 0}
-    m_Extent: {x: 4.0622373, y: 3.7639885, z: 0}
+    m_Center: {x: -0.123123646, y: 0.04076314, z: 0}
+    m_Extent: {x: 4.0622396, y: 3.7639885, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &375771262567989221
@@ -701,7 +701,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 12
+  m_SortingOrder: 20
 --- !u!114 &8483663878340366718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,14 +716,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 5
   damage: 0
-  speed: 50000
+  speed: 80000
   power: 0
   attackRadius: 0
   attackDelay: 0
   damageModifier: 0
-  baseHealth: 5
   baseDamage: 0
   maxHealth: 5
+  timeToChangeWalkSound: 0
   attackCenter: {fileID: 0}
   enemyLayers:
     serializedVersion: 2
@@ -741,8 +741,10 @@ MonoBehaviour:
   attackDist: 3
   walkDist: 15
   timeInPosition: 3
-  runSpeed: 80000
-  walkSpeed: 50000
+  runSpeed: 110000
+  walkSpeed: 80000
+  lowHpDrops:
+  - {fileID: 8712388840735235058, guid: b523fbb5888a6eb41b542b41e64329ec, type: 3}
 --- !u!1 &2782345301024845282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1621,7 +1623,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 2642671122985964483}
   m_Bounds:
-    m_Center: {x: -0.051827908, y: 0.01744914, z: 0}
+    m_Center: {x: -0.051843166, y: 0.017447233, z: 0}
     m_Extent: {x: 2.2142298, y: 1.9478561, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1

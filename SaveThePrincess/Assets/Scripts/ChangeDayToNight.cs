@@ -10,7 +10,7 @@ public class ChangeDayToNight : MonoBehaviour
     private Transform dayParent, nightParent, moon, sun;
     public float moonAndSunY = 10.3f;
     public int dayCount, dayTime;
-    public TextMeshPro dayCounter;
+    public TextMeshProUGUI dayCounter;
 
     [SerializeField]
     private AudioClip dayAudio, nightAudio;
@@ -26,9 +26,10 @@ public class ChangeDayToNight : MonoBehaviour
         sun = GameObject.FindWithTag("sun").transform;
         GetChilds(dayParent, daySprites);
         GetChilds(nightParent, nightSprites);
-
-        dayCounter.text = "Day: " + dayCount;
         StartCoroutine(TimeChanger(false));
+
+        if(dayCounter!=null)
+            dayCounter.text = ": " + dayCount;
     }
 
     //collect all child sprites from day and night parents
@@ -112,7 +113,10 @@ public class ChangeDayToNight : MonoBehaviour
             StartCoroutine(ChangeSunAndMoon(moon));
             StartCoroutine(TimeChanger(false));
             dayCount++;
-            dayCounter.text = "Day: " + dayCount;
+
+            if (dayCounter != null)
+                dayCounter.text = ": " + dayCount;
+
             night = false;
             soundPlayer.PlaySound(dayAudio);
         }

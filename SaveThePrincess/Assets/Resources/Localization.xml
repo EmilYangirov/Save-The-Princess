@@ -62,44 +62,176 @@
 	</key>
 	<key Name="Loose">
 		<Translates>
-			<en-us>You loose</en-us>
-			<ru>Вы проиграли</ru>
+			<en-us>You loose =(</en-us>
+			<ru>Вы проиграли =(</ru>
 		</Translates>
 	</key>
 	<key Name="ResurrectionCost">
 		<Translates>
-			<en-us>Resurrection Price</en-us>
-			<ru>Стоимость  возрождения</ru>
+			<en-us>Resurrection Price:</en-us>
+			<ru>Стоимость  возрождения:</ru>
 		</Translates>
 	</key>
 	<key Name="FreeResurrection">
 		<Translates>
 			<en-us>Watch video ad and get a free resurrection</en-us>
-			<ru>Бесплатное возрождение за просмотр видео рекламы</ru>
+			<ru>Награда: бесплатное возрождение за просмотр видео рекламы</ru>
 		</Translates>
 	</key>
 	<key Name="ResurrectButton">
 		<Translates>
 			<en-us>Resurrect</en-us>
-			<ru>Воскреситься</ru>
+			<ru>Воскреснуть</ru>
 		</Translates>
 	</key>
 	<key Name="FreeResurrectionButton">
 		<Translates>
 			<en-us>Get free rebirth</en-us>
-			<ru>Бесплатное возрождение</ru>
+			<ru>Получить награду</ru>
 		</Translates>
 	</key>
 	<key Name="Congratulations">
 		<Translates>
-			<en-us>Congratulations</en-us>
-			<ru>Поздравляем</ru>
+			<en-us>Congratulations!</en-us>
+			<ru>Поздравляем!</ru>
 		</Translates>
 	</key>
 	<key Name="YouWin">
 		<Translates>
 			<en-us>You win! The tower is destroyed and your princess is saved!</en-us>
-			<ru>Вы победили! Башня разрушена и ваша принцесса спасена!</ru>
+			<ru>Вы победили! Башня разрушена, ваша принцесса спасена!</ru>
+		</Translates>
+	</key>
+	<key Name="NewGame">
+		<Translates>
+			<en-us>New game</en-us>
+			<ru>Новая игра</ru>
+		</Translates>
+	</key>
+	<key Name="Princess">
+		<Translates>
+			<en-us>Princess</en-us>
+			<ru>Принцесса</ru>
+		</Translates>
+	</key>
+	<key Name="D1T1">
+		<Translates>
+			<en-us>My Lord! Have you come to help me?</en-us>
+			<ru>Милорд! Вы пришли, чтобы помочь мне?</ru>
+		</Translates>
+	</key>
+	<key Name="D1T2">
+		<Translates>
+			<en-us>The dark forces imprisoned me in this tower!</en-us>
+			<ru>Темные силы заточили меня в этой башне!</ru>
+		</Translates>
+	</key>
+	<key Name="D1T3">
+		<Translates>
+			<en-us>Apple of my eye! I will destroy the tower and free you, come hell or high water!</en-us>
+			<ru>Свет очей моих! Я разрушу темницу и освобожу Вас во что бы то ни стало!</ru>
+		</Translates>
+	</key>
+	<key Name="D1T4">
+		<Translates>
+			<en-us>Be careful, my lord! These lands are full of dark forces!</en-us>
+			<ru>Будьте осторожны, милорд! Эти края полны темных сил!</ru>
+		</Translates>
+	</key>
+	<key Name="Arthur">
+		<Translates>
+			<en-us>Arthur</en-us>
+			<ru>Артур</ru>
+		</Translates>
+	</key>
+	<key Name="AppleTreeT1">
+		<Translates>
+			<en-us>Apples are good for the health of the body, they will give me the strength to save the princess.</en-us>
+			<ru>Яблоки полезны для здоровья организма, они дадут мне силы для спасения принцессы.</ru>
+		</Translates>
+	</key>
+	<key Name="AppleTreeT2">
+		<Translates>
+			<en-us>Apples are used to increase level of the character.</en-us>
+			<ru>Яблоки используются для повышения уровня персонажа.</ru>
+		</Translates>
+	</key>
+	<key Name="AppleTreeT3">
+		<Translates>
+			<en-us>The level affects the character's attack and health characteristics.</en-us>
+			<ru>Уровень влияет на характеристику атаки персонажа и его здоровье.</ru>
+		</Translates>
+	</key>
+	<key Name="Information">
+		<Translates>
+			<en-us>Information</en-us>
+			<ru>Информация</ru>
+		</Translates>
+	</key>
+	<key Name="ForgeT1">
+		<Translates>
+			<en-us>In the forge I can upgrade my weapons.</en-us>
+			<ru>В кузнице я могу улучшить свое оружие.</ru>
+		</Translates>
+	</key>
+	<key Name="ForgeT2">
+		<Translates>
+			<en-us>The weapon significantly increases the characteristic of the character's attack.</en-us>
+			<ru>Оружие значительно повышает характеристику атаки персонажа.</ru>
+		</Translates>
+	</key>
+	<key Name="ChickenFarmT1">
+		<Translates>
+			<en-us>Chickens will help me restore my health!</en-us>
+			<ru>Курицы помогут мне восстановить здоровье!</ru>
+		</Translates>
+	</key>
+	<key Name="ChickenFarmT2">
+		<Translates>
+			<en-us>The chicken farm is used to restore the character's health and increase his level.</en-us>
+			<ru>Курятник используется для восстановления здоровья персонажа и повышения его уровня.</ru>
+		</Translates>
+	</key>
+	<key Name="D2T1">
+		<Translates>
+			<en-us>My lord! You saved me! I'm full of the joys of spring!</en-us>
+			<ru>Милорд! Вы спасли меня! Счастью моему нет предела!</ru>
+		</Translates>
+	</key>
+	<key Name="D2T2">
+		<Translates>
+			<en-us>I couldn't leave you in the trouble!</en-us>
+			<ru>Я не мог бросить Вас в беде!</ru>
+		</Translates>
+	</key>
+	<key Name="D2T3">
+		<Translates>
+			<en-us>We need to get back to the castle as soon as possible, before the dark forces return again!</en-us>
+			<ru>Нужно скорее возвращаться в замок, пока темные силы не появились вновь!</ru>
+		</Translates>
+	</key>
+	<key Name="HeroLevel">
+		<Translates>
+			<en-us>Hero level</en-us>
+			<ru>Уровень героя</ru>
+		</Translates>
+	</key>
+	<key Name="MobileTutorial">
+		<Translates>
+			<en-us>Use the left half of the screen to control the character and the right half to attack.</en-us>
+			<ru>Используйте левую половину экрана для управления персонажем и правую для атаки.</ru>
+		</Translates>
+	</key>
+	<key Name="ComputerTutorial">
+		<Translates>
+			<en-us>Use the [A] and [D] keys to control the character and [Space] or [Right Mouse] to attack.</en-us>
+			<ru>Используйте клавиши [A] и [D] для управления персонажем и [Пробел] или [ПКМ] для атаки.</ru>
+		</Translates>
+	</key>
+	<key Name="Control">
+		<Translates>
+			<en-us>Control</en-us>
+			<ru>Управление</ru>
 		</Translates>
 	</key>
 </keys>

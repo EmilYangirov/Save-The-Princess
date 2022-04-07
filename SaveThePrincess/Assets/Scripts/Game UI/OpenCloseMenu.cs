@@ -35,7 +35,7 @@ public class OpenCloseMenu : MonoBehaviour
         List<Vector2> newPositions = PositionsList();
         //change buttons positions by the time
         float time = 0;
-        while (time < 1)
+        while (time < 1.5)
         {
             for (int i = 0; i < menuElements.Count; i++)
             {              

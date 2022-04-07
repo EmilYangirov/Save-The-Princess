@@ -9,6 +9,8 @@ public class PauseButton : MenuButton
         if(Time.timeScale == 0)
             Time.timeScale = 1;
         else
-            Time.timeScale = 0;        
+            Time.timeScale = 0;    
+        
+        base.OnButtonClick();
     }
 }

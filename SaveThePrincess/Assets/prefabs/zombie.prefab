@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135125894605081151}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 62.79, y: -8.51, z: 0}
+  m_LocalPosition: {x: 82.4, y: -4.5, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 3940926609764965873}
@@ -140,7 +140,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 13
+  m_SortingOrder: 18
 --- !u!114 &5366419659556667510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,11 +157,12 @@ MonoBehaviour:
   damage: 0
   speed: 75000
   power: 50000
-  attackRadius: 1.5
-  attackDelay: 1.2
+  attackRadius: 1.7
+  attackDelay: 1.8
   damageModifier: 0
-  baseDamage: 1
-  maxHealth: 6
+  baseDamage: 1.5
+  maxHealth: 10
+  timeToChangeWalkSound: 0
   attackCenter: {fileID: 5366419658012071690}
   enemyLayers:
     serializedVersion: 2
@@ -182,7 +183,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7e695eddcbfbbb64e8ff96396e686d4f, type: 3}
   - {fileID: 8300000, guid: 3d04ffb8a57f68547b984f89a37bb7f7, type: 3}
   itsAttack: 0
-  attackDist: 5
+  attackDist: 4.8
   walkDist: 200
 --- !u!1 &588608599696545414
 GameObject:

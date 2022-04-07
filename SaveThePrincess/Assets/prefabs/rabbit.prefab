@@ -134,7 +134,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 3483291139063178585}
   m_Bounds:
-    m_Center: {x: -0.0006688833, y: -0.00026381016, z: 0}
+    m_Center: {x: -0.0006650686, y: -0.00026381016, z: 0}
     m_Extent: {x: 1.6468354, y: 1.4659402, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 2612253388680968129}
   m_Bounds:
-    m_Center: {x: -0.0000038146973, y: 0.0000019073486, z: 0}
+    m_Center: {x: -0.0000038146973, y: 0, z: 0}
     m_Extent: {x: 1.7150009, y: 2.035001, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -642,8 +642,8 @@ MonoBehaviour:
   - {fileID: 8134549584413731393}
   - {fileID: 6583394625797993607}
   m_Bounds:
-    m_Center: {x: 0.00020861626, y: 0.0020179749, z: 0}
-    m_Extent: {x: 2.845612, y: 3.4794698, z: 0}
+    m_Center: {x: 0.00021028519, y: 0.0020179749, z: 0}
+    m_Extent: {x: 2.8456104, y: 3.4794698, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &3076261632642669446
@@ -851,7 +851,7 @@ MonoBehaviour:
   - {fileID: 5521730433993651511}
   - {fileID: 8161343101892357234}
   m_Bounds:
-    m_Center: {x: -0.004939556, y: 0.0008842945, z: 0}
+    m_Center: {x: -0.004937649, y: 0.00088620186, z: 0}
     m_Extent: {x: 1.1050637, y: 2.03702, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1182,7 +1182,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 5521730433993651511}
   m_Bounds:
-    m_Center: {x: -0.0000041127205, y: -0.0000038146973, z: 0}
+    m_Center: {x: -0.0000022053719, y: -0.0000038146973, z: 0}
     m_Extent: {x: 0.994999, y: 2.0699997, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1413,7 +1413,7 @@ MonoBehaviour:
   - {fileID: 2213747749438694685}
   - {fileID: 6583394625797993607}
   m_Bounds:
-    m_Center: {x: -0.0023634434, y: 0.004984379, z: 0}
+    m_Center: {x: -0.002361536, y: 0.0049824715, z: 0}
     m_Extent: {x: 2.8476403, y: 3.479985, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1532,7 +1532,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 13
+  m_SortingOrder: 20
 --- !u!114 &5321993008696422716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1547,14 +1547,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   damage: 0
-  speed: 75000
+  speed: 120000
   power: 75000
   attackRadius: 1.5
-  attackDelay: 0.8
+  attackDelay: 0.75
   damageModifier: 0
-  baseHealth: 3
   baseDamage: 0.5
-  maxHealth: 3
+  maxHealth: 4.5
+  timeToChangeWalkSound: 0
   attackCenter: {fileID: 5321993009827764271}
   enemyLayers:
     serializedVersion: 2
@@ -1565,7 +1565,7 @@ MonoBehaviour:
   AttackAnimCount: 1
   chBars: []
   walkSounds:
-  - {fileID: 8300000, guid: 4f7a062d21152ed4e98c8aaffc7525fa, type: 3}
+  - {fileID: 8300000, guid: b1274feb32ea9ce43ba6f91449c06066, type: 3}
   attackSound:
   - {fileID: 8300000, guid: 9b1ac2ebe70a15c4d902e6103450e823, type: 3}
   - {fileID: 8300000, guid: 03fde17478618d740baa3a87c23099f8, type: 3}
@@ -1721,7 +1721,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 169079907874286561}
   m_Bounds:
-    m_Center: {x: -0.0036785603, y: 0.004381895, z: 0}
+    m_Center: {x: -0.003676653, y: 0.0043809414, z: 0}
     m_Extent: {x: 2.7113256, y: 2.8206153, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1

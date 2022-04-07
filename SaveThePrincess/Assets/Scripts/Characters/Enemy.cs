@@ -7,9 +7,15 @@ public class Enemy : Character
     protected Transform target;
     public float attackDist, walkDist;
     protected float dist;
-    new void Start()
+
+    protected Player player;
+    public override void Start()
     {
-        base.Start();        
+        base.Start();
+
+        GameObject ch = GameObject.FindGameObjectWithTag("Character");
+        player = ch.GetComponent<Player>();
+
         ChooseTarget();
     }
     public override void FixedUpdate()
@@ -52,8 +58,7 @@ public class Enemy : Character
         }
     }
     public virtual void ChooseTarget()
-    {
-        GameObject ch = GameObject.FindGameObjectWithTag("Character");
-        target = ch.transform;
+    {        
+        target = player.transform;
     }
 }

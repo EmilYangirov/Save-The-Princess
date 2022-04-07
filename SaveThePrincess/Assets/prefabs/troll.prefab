@@ -1016,7 +1016,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 13
+  m_SortingOrder: 20
 --- !u!114 &5659748208099925618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1031,19 +1031,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   damage: 2
-  speed: 250000
+  speed: 300000
   power: 75000
   attackRadius: 3.85
-  attackDelay: 2
+  attackDelay: 1.8
   damageModifier: 0
-  baseDamage: 2.5
-  maxHealth: 10
+  baseDamage: 4
+  maxHealth: 20
+  timeToChangeWalkSound: 0
   attackCenter: {fileID: 5659748207579660610}
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2048
   drops:
-  - {fileID: 8712388840735235058, guid: b523fbb5888a6eb41b542b41e64329ec, type: 3}
+  - {fileID: 282298042314418760, guid: 0c0b1cad9d719514ab7ea21d0b8eabbb, type: 3}
   - {fileID: 1946453443841132008, guid: 58df08f7479e73040b1b604e6f8f75b6, type: 3}
   AttackAnimCount: 1
   chBars: []
@@ -1058,7 +1059,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 08d12bb129b23414787c76bbe20d11f0, type: 3}
   - {fileID: 8300000, guid: 3fe0dd2074889874d92530ade227077d, type: 3}
   itsAttack: 0
-  attackDist: 3
+  attackDist: 5
   walkDist: 200
 --- !u!1 &7997846662644356438
 GameObject:

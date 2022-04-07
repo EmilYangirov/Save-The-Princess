@@ -6,7 +6,11 @@ public abstract class Character : MonoBehaviour, IHitableObject
 {
     public float health, damage, speed, power, attackRadius, attackDelay;
     public float damageModifier, baseDamage;
-    public float maxHealth;    
+    public float maxHealth;
+
+    [SerializeField]
+    private int timeToChangeWalkSound = 0;
+
     public Transform attackCenter;
     public LayerMask enemyLayers;
     protected Animator anim;
@@ -16,12 +20,13 @@ public abstract class Character : MonoBehaviour, IHitableObject
     public List<CharacterBar> chBars;
 
     [SerializeField]
-    private AudioClip[] walkSounds, attackSound, hitSound;
+    protected AudioClip[] walkSounds, attackSound, hitSound;
 
-    private SoundPlayer walkPlayer, attackPlayer, hitPlayer;
+    protected SoundPlayer walkPlayer, attackPlayer, hitPlayer;
 
     protected bool flip;
     public bool itsAttack = false;
+    private bool itsDead = false;
 
     protected Character()
     {
@@ -45,7 +50,7 @@ public abstract class Character : MonoBehaviour, IHitableObject
     public virtual void Walk()
     {
         //Play Sound
-        walkPlayer.PlaySound(walkSounds);
+        walkPlayer.PlaySound(walkSounds, timeToChangeWalkSound);
     }
     public virtual void FixedUpdate()
     {
@@ -54,7 +59,7 @@ public abstract class Character : MonoBehaviour, IHitableObject
 
     public virtual void Attack()
     {
-        if (!itsAttack)
+        if (!itsAttack && !itsDead)
         {
             int i = Random.Range(0, AttackAnimCount);
             anim.SetFloat("chAttack", i);
@@ -108,17 +113,23 @@ public abstract class Character : MonoBehaviour, IHitableObject
         Destroy(gameObject);
     }
 
-    private void CreateDrop()
+    protected void CreateDrop()
     {
-        if (drops.Length != 0)
+        var dropsArray = ChooseDropsArray();
+
+        if (dropsArray.Length != 0 && dropsArray != null)
         {
-            int randomDrop = Random.Range(0, drops.Length);
-            Instantiate(drops[randomDrop], transform.position, Quaternion.identity);
+            int randomDrop = Random.Range(0, dropsArray.Length);
+            Instantiate(dropsArray[randomDrop], transform.position, Quaternion.identity);
         }
     }
-
+    protected virtual GameObject[] ChooseDropsArray()
+    {
+        return drops;
+    }
     private IEnumerator DeathCoroutine()
     {
+        itsDead = true;
         CreateDrop();
         float time = 0;
         while (time < 1f)

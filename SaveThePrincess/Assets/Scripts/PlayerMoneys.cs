@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class PlayerMoneys : MonoBehaviour
 {
     public int moneys { get; private set; }
-    public Text moneyText;
-    public string moneyString;
+    public TextMeshProUGUI moneyText;
     
     private void Start()
     {
@@ -28,7 +27,8 @@ public class PlayerMoneys : MonoBehaviour
 
     private void CheckMoneysText()
     {
-        moneyText.text = moneyString + moneys;
+        if(moneyText!= null)
+            moneyText.text = ": "+moneys;
     }
 
     public bool CheckMoneys(int money)
