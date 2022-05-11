@@ -39,6 +39,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -256,6 +257,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      game_icons_crystal_set_3: -1454526503462161896
+      game_icons_crystal_set_1: -3756429088624544401
+      game_icons_crystal_set_4: 37895221459402426
+      game_icons_crystal_set_2: 4156396372252667115
+      game_icons_crystal_set_0: -5426658818795623039
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

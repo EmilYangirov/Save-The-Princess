@@ -6,11 +6,16 @@ public class AdCreator : MonoBehaviour
 {
     private YandexSDK sdk;
     private Restart rewardScript;
+    private CharacterDieCounter characterDie;
+
 
     private void Start()
     {
         sdk = YandexSDK.Instance;
         sdk.RewardGet += GetReward;
+
+        characterDie = GetComponent<CharacterDieCounter>();
+        characterDie.ShowInterstitial += ShowInterstitialAd;
 
         var levelManager = GameObject.FindGameObjectWithTag("levelmanager");
         rewardScript = levelManager.GetComponent<Restart>();
@@ -20,27 +25,7 @@ public class AdCreator : MonoBehaviour
     {
         sdk.ShowCommonAdvertisment();
     }
-
-    public void OnCharacterDie()
-    {
-        int characterDieCount = 1;
-
-        if (!PlayerPrefs.HasKey("DieCount"))
-        {
-            PlayerPrefs.SetInt("DieCount", characterDieCount);
-        } else
-        {
-            characterDieCount = PlayerPrefs.GetInt("DieCount") + 1;
-
-            if(characterDieCount >= 3)
-            {
-                characterDieCount = 0;
-                ShowInterstitialAd();
-            }
-
-            PlayerPrefs.SetInt("DieCount", characterDieCount);
-        }
-    }
+    
 
     public void ShowRewardedAd()
     {
@@ -49,11 +34,26 @@ public class AdCreator : MonoBehaviour
 
     private void GetReward()
     {
-      rewardScript.ChangeResurrectStatus();       
+        rewardScript.ChangeResurrectStatus();
+        rewardScript.PriceResurrect();
     }
 
     private void OnDisable()
     {
         sdk.RewardGet -= GetReward;
+        characterDie.ShowInterstitial -= ShowInterstitialAd;
+    }
+
+    public void TurnOffAudio()
+    {       
+        AudioListener.volume = 0;
+    }
+
+    public void TurnOnAudio()
+    {
+        if (PlayerPrefs.GetInt("audio") == 1 || !PlayerPrefs.HasKey("audio"))
+        {
+            AudioListener.volume = 1;
+        }
     }
 }

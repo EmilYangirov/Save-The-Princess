@@ -4,39 +4,38 @@ using UnityEngine;
 
 public class TurnOnOffAudioButton : MenuButton
 {
-    private AudioSource musicSource;
+    private string key = "audio";
 
-    [SerializeField]
-    private bool turnOffAllAudio;
     
     protected override void Start()
     {
         base.Start();
-
-        if (!turnOffAllAudio)
-        {
-            GameObject camera = Camera.main.gameObject;
-            musicSource = camera.GetComponent<AudioSource>();
-        }
+        SetStartAudioStatus();
     }
 
     public override void OnButtonClick()
     {
-        base.OnButtonClick();
-
-        if (turnOffAllAudio)
+        if (AudioListener.volume == 0)
         {
-            if (AudioListener.pause)
-                AudioListener.pause = false;
-            else
-                AudioListener.pause = true;
+            AudioListener.volume = 1;
+            PlayerPrefs.SetInt(key, 1);
         } else
         {
-            if(musicSource.mute)
-                musicSource.mute = false;
-            else
-                musicSource.mute = true;
+            AudioListener.volume = 0;
+            PlayerPrefs.SetInt(key, 0);
         }
-            
+        ChangeButtonImage();
+    }
+
+    private void SetStartAudioStatus()
+    {
+        if (PlayerPrefs.HasKey(key))
+        {
+            if(PlayerPrefs.GetInt(key) == 0)
+            {
+                AudioListener.volume = 0;
+                ChangeButtonImage();
+            }
+        }
     }
 }

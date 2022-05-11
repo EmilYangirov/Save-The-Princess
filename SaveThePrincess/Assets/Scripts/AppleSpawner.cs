@@ -67,8 +67,12 @@ public class AppleSpawner : MonoBehaviour, IHitableObject
             Destroy(apples[i].gameObject);            
         }
         apples.Clear();
-        StopCoroutine(spawnApplesTimer);
-        spawnApplesTimer = StartCoroutine(Timer());
+
+        if (maxAppleCount > 0)
+        {
+            StopCoroutine(spawnApplesTimer);
+            spawnApplesTimer = StartCoroutine(Timer());
+        }
 
         if (canSpawn)
             anim.SetBool("dead", true);

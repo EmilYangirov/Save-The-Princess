@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
+
 public class Restart : MonoBehaviour
 {
     private PlayerMoneys playerMoneys;
@@ -10,6 +12,8 @@ public class Restart : MonoBehaviour
     private SceneInfo sceneInfo;
     private int rebirthPrice, levelPrice;
     private bool freeRessurect;
+
+    public event Action onRestart;
 
     [SerializeField]
     private TextMeshProUGUI costText, levelText;
@@ -64,6 +68,7 @@ public class Restart : MonoBehaviour
     }
     private void Resurrect()
     {
+        onRestart?.Invoke();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

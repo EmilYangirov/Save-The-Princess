@@ -11,8 +11,7 @@ public class DialogueManager : MonoBehaviour
     private CanvasGroup dialogueCanvas, uiCanvas;
 
     private Dialogue thatDialogue;
-
-
+       
     public void ShowDialogue(int dialogueIndex)
     {
         HideUICanvas();

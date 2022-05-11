@@ -15,12 +15,21 @@ public class Localization : MonoBehaviour
     [SerializeField]
     private TextAsset textFile;
 
+    private string key = "language";
+
     private void Awake()
     {
-        if (Application.systemLanguage == SystemLanguage.Russian || Application.systemLanguage == SystemLanguage.Ukrainian || Application.systemLanguage == SystemLanguage.Belarusian)
-            selectedLanguage = 1;
-        else
-            selectedLanguage = 0;
+        if (!PlayerPrefs.HasKey(key))
+        {
+            if (Application.systemLanguage == SystemLanguage.Russian || Application.systemLanguage == SystemLanguage.Ukrainian || Application.systemLanguage == SystemLanguage.Belarusian)
+                selectedLanguage = 1;
+            else
+                selectedLanguage = 0;
+
+        } else
+        {
+            selectedLanguage = PlayerPrefs.GetInt(key);
+        }
         
         if (localization == null)
             LoadLocalization();
@@ -60,6 +69,8 @@ public class Localization : MonoBehaviour
     public void SetLanguage(int id)
     {
         selectedLanguage = id;
+        PlayerPrefs.SetInt(key, id);
         OnLanguageChange?.Invoke();
     }
+
 }

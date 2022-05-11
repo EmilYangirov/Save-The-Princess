@@ -39,6 +39,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -256,6 +257,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      game_icons_coin_set_0: 4890532265601394925
+      game_icons_coin_set_1: -3975186343217704389
+      game_icons_coin_set_4: -3773262030138136633
+      game_icons_coin_set_3: -5565980867170714300
+      game_icons_coin_set_2: -4116999036567629756
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

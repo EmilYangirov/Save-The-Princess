@@ -234,4 +234,74 @@
 			<ru>Управление</ru>
 		</Translates>
 	</key>
+	<key Name="Welcome">
+		<Translates>
+			<en-us>Welcome!</en-us>
+			<ru>Добро пожаловать!</ru>
+		</Translates>
+	</key>
+	<key Name="Policyinfo">
+		<Translates>
+			<en-us>Before starting the game, please accept the Terms&amp;Conditions and Privacy Policy:</en-us>
+			<ru>Перед началом игры, пожалуйста,  подтвердите пользовательское соглашение и политику конфиденциальности:</ru>
+		</Translates>
+	</key>
+	<key Name="Terms">
+		<Translates>
+			<en-us>Terms&amp;Conditions</en-us>
+			<ru>Пользовательское соглашение</ru>
+		</Translates>
+	</key>
+	<key Name="PrivacyPolicy">
+		<Translates>
+			<en-us>Privacy Policy</en-us>
+			<ru>Политика конфиденциальности</ru>
+		</Translates>
+	</key>
+	<key Name="Accept">
+		<Translates>
+			<en-us>Accept</en-us>
+			<ru>Подтвердить</ru>
+		</Translates>
+	</key>
+	<key Name="GDPRinfo">
+		<Translates>
+			<en-us>Thank you for playing our game!
+
+We aim to enhance your user experience and improve our services using data about you, with your consent.
+
+You have the right to opt out of data collection. Although it negatively affects our services, we respect your decision.
+
+By opting in to data collection, you confirm that you are at least 16 years old.
+
+You can change your choices anytime in the app settings.</en-us>
+			<ru>Спасибо, что играете в нашу игру!
+
+Мы стремимся улучшить Ваш пользовательский опыт и улучшить наши услуги, используя данные о Вас с Вашего согласия.
+				
+Вы имеете право отказаться от сбора данных. Хотя это негативно сказывается на наших услугах, мы уважаем Ваше решение.
+
+Соглашаясь на сбор данных, Вы подтверждаете, что Вам по крайней мере 18 лет.
+
+Вы можете изменить свой выбор в любое время в настройках приложения.</ru>
+		</Translates>
+	</key>
+	<key Name="AdsInfo">
+		<Translates>
+			<en-us>When enabled, you'll see ads that are more relevant to you. Otherwise, you will still receive ads, but they will no longer be tailored toward you.</en-us>
+			<ru>Если эта функция включена, Вы увидите более подходящую для Вас рекламу. В противном случае Вы по-прежнему будете видеть рекламу, но она больше не будет адаптирована под Вас.</ru>
+		</Translates>
+	</key>
+	<key Name="AdsCollect">
+		<Translates>
+			<en-us>Collect information for ad personalization.</en-us>
+			<ru>Собирать информацию для персонализации рекламы.</ru>
+		</Translates>
+	</key>
+	<key Name="Partners">
+		<Translates>
+			<en-us>Privacy Policies of our partners:</en-us>
+			<ru>Политики конфиденциальности наших партнеров:</ru>
+		</Translates>
+	</key>
 </keys>

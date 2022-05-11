@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ChangeLanguageButton : MenuButton
 {
     [SerializeField]
-    private Localization localization;
+    private Localization localization;   
 
     protected override void Start()
     {
